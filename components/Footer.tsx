@@ -2,7 +2,7 @@ import Link from "next/link";
 import { MdOutlineHub } from "react-icons/md";
 
 export const Footer: React.FC = () => (
-  <footer className="bg-background-light dark:bg-background-dark mt-10 border-t border-gray-200 p-8">
+  <footer className="border-t border-gray-400 p-8">
     <div className="flex flex-col items-center gap-6 text-center">
       <div className="flex items-center gap-2">
         <MdOutlineHub className="text-primary text-3xl" />
