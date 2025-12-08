@@ -24,8 +24,9 @@ const macondoSwash = Macondo_Swash_Caps({
 });
 
 export const metadata: Metadata = {
-  title: "Onboardee",
-  description: "Onboarding app",
+  title: "Onboardify",
+  description:
+    "A SaaS platform for creating effortless user onboarding tours and tooltips.",
 };
 
 export default function RootLayout({
