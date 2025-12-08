@@ -20,7 +20,7 @@ export const Footer: React.FC = () => (
           Privacy
         </a>
       </div>
-      <p className="text-xs text-gray-500 font-macondo-swash">
+      <p className="text-sm text-gray-500">
         © {new Date().getFullYear()} Onboardify. All rights reserved.
       </p>
     </div>
