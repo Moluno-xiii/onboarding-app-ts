@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
           ))}
 
           <Link
-            href="/auth"
+            href="/signup"
             className="bg-yellow/80 hover:bg-light-black ml-3 inline-flex items-center rounded-full px-4 py-2 text-sm font-bold text-white transition-colors"
           >
             Get Started
@@ -88,7 +88,7 @@ export const Header: React.FC = () => {
               ))}
 
               <Link
-                href="/auth"
+                href="/signup"
                 onClick={() => setOpen(false)}
                 className="bg-yellow/80 hover:bg-light-black mt-2 inline-flex w-full items-center justify-center rounded-full px-4 py-2 text-sm font-bold text-white transition-colors"
               >

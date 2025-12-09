@@ -5,6 +5,7 @@ import {
   Raleway,
   Inter,
   Macondo_Swash_Caps,
+  Quantico
 } from "next/font/google";
 import "./globals.css";
 
@@ -25,6 +26,19 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const macondoSwash = Macondo_Swash_Caps({
+  variable: "--font-macondo-swash",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const quantico = Quantico({
+  display: "swap",
+  weight: ["400", "700"],
+  variable: "--font-quantico",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "Onboardify",
   description:
@@ -38,7 +52,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${raleway.className} antialiased`}>{children}</body>
+      <body
+        className={`${geistSans.variable} ${raleway.variable} flex min-h-dvh ${geistMono.variable} ${inter.variable} ${quantico.variable} ${macondoSwash.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

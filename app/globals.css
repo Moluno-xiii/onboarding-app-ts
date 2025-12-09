@@ -30,7 +30,11 @@
   --font-inter: var(--font-inter);
   --color-primary: #3b82f6;
   --color-primary-dark: #2563eb;
-
+  --font-quantico: var(--font-quantico);
+  --color-light: #f7f7f7;
+  /* --color-primary: #314158; */
+  --color-darker: #333333;
+  
   --color-yellow: #f0b420 ;
   --color-black: #1e1e1e;
   --color-purple: #b0a5f4;
@@ -44,6 +48,17 @@
   --font-raleway: "Raleway";
 }
 
+@layer components {
+  .link-btn {
+    @apply bg-primary hover:bg-primary/60 cursor-pointer rounded-lg px-6 py-3 text-white transition-all duration-200 hover:scale-105;
+  }
+
+  .input {
+    @apply border-primary/50 focus:outline-primary placeholder:text-darker/30 min-w-2xs rounded-lg border px-5 py-4 transition-all duration-200 focus:outline-2 md:w-md md:focus:scale-105 lg:w-lg;
+  }
+
+}
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #f9f2e9;
@@ -55,4 +70,39 @@ body {
   background: #f9f2e9;
   color: var(--foreground);
   /* font-family: Raleway, sans-serif; */
+}
+
+.loader {
+  width: 54px;
+  height: 54px;
+  position: relative;
+  background: #fff;
+  border-radius: 4px;
+}
+.loader:before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 24px;
+  height: 24px;
+  background: rgb(14, 24, 155);
+  border-radius: 50%;
+  transform-origin: 100% 100%;
+  animation: move 1s linear infinite;
+}
+@keyframes move {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100%, 0);
+  }
+  50% {
+    transform: translate(100%, 100%);
+  }
+  75% {
+    transform: translate(0, 100%);
+  }
 }
