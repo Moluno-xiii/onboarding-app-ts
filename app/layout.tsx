@@ -1,26 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Macondo_Swash_Caps } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Raleway,
+  Inter,
+  Macondo_Swash_Caps,
+} from "next/font/google";
 import "./globals.css";
 
+// Configure the font
+const raleway = Raleway({
+  subsets: ["latin"], // required
+  weight: ["400", "700"], // optional, include weights you want
+  style: ["normal", "italic"], // optional
+  display: "swap",
+});
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const macondoSwash = Macondo_Swash_Caps({
-  variable: "--font-macondo-swash",
-  subsets: ["latin"],
-  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -36,11 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${macondoSwash.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={` ${raleway.className} antialiased`}>{children}</body>
     </html>
   );
 }

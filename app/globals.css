@@ -4,6 +4,22 @@
   --background: #ffffff;
   --foreground: #171717;
 } */
+@font-face {
+  font-family: Tay Bea;
+  src: url("https://cdn.prod.website-files.com/67079a31e71560a787d9fcc4/67079b35ca1818ca1f47d47a_TAYBea.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: Raleway;
+  src: url('/components/font/Raleway-Regular.ttf') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+} */
 
 @theme inline {
   --color-background: var(--background);
@@ -14,17 +30,29 @@
   --font-inter: var(--font-inter);
   --color-primary: #3b82f6;
   --color-primary-dark: #2563eb;
+
+  --color-yellow: "#f0b420";
+  --color-black: "#1e1e1e";
+  --color-purple: "#b0a5f4";
+  --color-light-brown-gray: "#f2e8dc";
+  --color-light-brown: "#a79785";
+  --color-red: "#f36c5a";
+  --color-gray: "#fffaf3";
+  --color-light-black: "#403f3e";
+  --color-bg-color: "#f9f2e9";
+  --font-tay-bea: "Tay Bea";
+  --font-raleway: "Raleway";
 }
 
 /* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #f9f2e9;
     --foreground: #ededed;
   }
 } */
 
 body {
-  background: var(--background);
+  background: #f9f2e9;
   color: var(--foreground);
-  font-family: var(--font-inter), sans-serif;
+  /* font-family: Raleway, sans-serif; */
 }
