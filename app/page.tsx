@@ -2,37 +2,66 @@ import Link from "next/link";
 import { features, steps } from "@/data";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import Image from "next/image";
 
 const cardClass =
   "flex flex-1 flex-col gap-3 rounded-xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md";
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="relative container mx-auto flex min-h-screen w-full flex-col overflow-x-hidden">
+    <div className="relative bg-bg-color container mx-auto flex min-h-screen w-full flex-col overflow-x-hidden">
       <Header />
 
       <main className="flex-1">
         {/* Top container controls horizontal padding and spacing */}
         <div className="w-full px-6 py-10">
           {/* Hero */}
-          <section className="relative mb-10 flex min-h-100 flex-col items-center justify-center gap-6 overflow-hidden rounded-xl bg-[linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2029&auto=format&fit=crop')] bg-cover bg-center p-6 sm:gap-8">
-            <div className="bg-primary/20 absolute inset-0 mix-blend-overlay" />
-            <div className="z-10 flex flex-col gap-2 text-center">
-              <h1 className="text-4xl leading-tight font-black tracking-[-0.033em] text-white @[30rem]:text-5xl">
-                Effortless User Onboarding
-              </h1>
-              <h2 className="mx-auto max-w-md text-sm leading-normal font-normal text-white/90 @[30rem]:text-base">
-                Guide your users with interactive tours and tooltips, embedded
-                in minutes.
-              </h2>
-            </div>
+          <section className="relative mb-10 flex min-h-100 flex-col items-center justify-center gap-6 overflow-hidden rounded-xl bg-cover bg-center p-6 sm:gap-8">
+            <div className="z-10 flex gap-2 text-center">
+              <Image
+                src={
+                  "https://cdn.prod.website-files.com/67079a31e71560a787d9fcc4/6720fb304fc9e5207aa650cd_01_work-call-1600px-transparent.gif"
+                }
+                alt="happy guy"
+                width={600}
+                height={600}
+                unoptimized
+                className="border border-black"
+              />
+              <div>
+                <div className="font-tay-bea flex text-8xl">
+                  <div className="-ml-20">
+                    <p className="relative -left-30">Effortlessly</p>
+                    <p >Onboard</p>
+                    <p>Users</p>
+                  </div>
 
-            <Link
-              href="/"
-              className="z-10 flex h-10 max-w-120 min-w-21 items-center justify-center rounded-lg bg-white px-6 text-sm font-bold transition-colors hover:bg-gray-100 @[30rem]:h-12 @[30rem]:px-5 @[30rem]:text-base"
-            >
-              <span className="truncate">Try the Demo</span>
-            </Link>
+                  <Image
+                    src={
+                      "https://cdn.prod.website-files.com/67079a31e71560a787d9fcc4/671f8d4e6862fc4943cefbc8_Static-6-yellow.gif"
+                    }
+                    alt="happy guy"
+                    width={100}
+                    height={100}
+                    unoptimized
+                    className="relative bottom-3 -left-28 self-start"
+                  />
+                </div>
+                <div>
+                  <h1 className="text-4xl leading-tight font-black tracking-[-0.033em] @[30rem]:text-5xl"></h1>
+                  <h2 className="mx-auto max-w-md text-sm leading-normal  @[30rem]:text-base">
+                    Guide your users with interactive tours and tooltips,
+                    embedded in minutes.
+                  </h2>
+                  <Link
+                    href="/"
+                    className="z-10 flex h-10 max-w-120 min-w-21 items-center justify-center rounded-lg bg-white px-6 text-sm font-bold transition-colors hover:bg-gray-100 @[30rem]:h-12 @[30rem]:px-5 @[30rem]:text-base"
+                  >
+                    <span className="truncate">Try the Demo</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </section>
 
           {/* Feature Section */}
