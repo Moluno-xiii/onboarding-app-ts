@@ -14,7 +14,7 @@ const cardClass =
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="container mx-auto bg-background relative flex min-h-screen w-full flex-col overflow-x-hidden">
+    <div className="bg-background relative container mx-auto flex min-h-screen w-full flex-col overflow-x-hidden">
       <Header />
 
       <main className="mx-auto w-full flex-1 px-6 py-6">
@@ -82,8 +82,8 @@ const AboutPage: React.FC = () => {
         {/* CTA */}
         <div className="mb-6">
           <Link
-            href="/auth"
-            className="max-w-md mx-auto bg-primary hover:bg-primary/90 flex w-full items-center justify-center rounded-xl px-6 py-4 text-base font-bold text-white transition-colors"
+            href="/signup"
+            className="bg-primary hover:bg-primary/90 mx-auto flex w-full max-w-md items-center justify-center rounded-xl px-6 py-4 text-base font-bold text-white transition-colors"
           >
             Get Started
           </Link>

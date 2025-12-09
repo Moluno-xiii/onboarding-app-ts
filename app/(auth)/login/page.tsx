@@ -1,5 +1,12 @@
-const Page = () => {
-  return <div>Login page</div>;
+import LoginForm from "@/app/_components/LoginForm";
+
+const Page: React.FC = () => {
+  return (
+    <div className="flex min-w-full flex-col items-center justify-center gap-y-5 px-3 py-5 md:gap-y-7">
+      <h2 className="text-2xl md:text-4xl">Login</h2>
+      <LoginForm />
+    </div>
+  );
 };
 
 export default Page;

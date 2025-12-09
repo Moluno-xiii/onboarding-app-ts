@@ -100,7 +100,7 @@ const LandingPage: React.FC = () => {
               </p>
 
               <Link
-                href="/auth"
+                href="/signup"
                 className="text-primary w-full max-w-sm rounded-lg bg-white px-5 py-3 text-center font-bold transition-colors hover:bg-gray-100"
               >
                 Get Started for Free

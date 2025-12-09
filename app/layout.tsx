@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Macondo_Swash_Caps } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Inter,
+  Macondo_Swash_Caps,
+  Quantico,
+} from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,6 +29,13 @@ const macondoSwash = Macondo_Swash_Caps({
   weight: ["400"],
 });
 
+const quantico = Quantico({
+  display: "swap",
+  weight: ["400", "700"],
+  variable: "--font-quantico",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "Onboardify",
   description:
@@ -37,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${macondoSwash.variable} antialiased`}
+        className={`${geistSans.variable} flex min-h-dvh ${geistMono.variable} ${inter.variable} ${quantico.variable} ${macondoSwash.variable} antialiased`}
       >
         {children}
       </body>
