@@ -11,7 +11,7 @@ import "./globals.css";
 // Configure the font
 const raleway = Raleway({
   subsets: ["latin"], // required
-  weight: ["400", "700"], // optional, include weights you want
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"], // optional
   display: "swap",
 });
