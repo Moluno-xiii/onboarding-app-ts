@@ -31,15 +31,15 @@
   --color-primary: #3b82f6;
   --color-primary-dark: #2563eb;
 
-  --color-yellow: "#f0b420";
-  --color-black: "#1e1e1e";
-  --color-purple: "#b0a5f4";
-  --color-light-brown-gray: "#f2e8dc";
-  --color-light-brown: "#a79785";
-  --color-red: "#f36c5a";
-  --color-gray: "#fffaf3";
-  --color-light-black: "#403f3e";
-  --color-bg-color: "#f9f2e9";
+  --color-yellow: #f0b420 ;
+  --color-black: #1e1e1e;
+  --color-purple: #b0a5f4;
+  --color-light-brown-gray: #f2e8dc;
+  --color-light-brown: #a79785;
+  --color-red: #f36c5a;
+  --color-gray: #fffaf3;
+  --color-light-black: #403f3e;
+  --color-bg-color: #f9f2e9;
   --font-tay-bea: "Tay Bea";
   --font-raleway: "Raleway";
 }
