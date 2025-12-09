@@ -13,13 +13,13 @@
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: Raleway;
-  src: url("/public/font/Raleway-Regular.ttf") format("truetype");
+  src: url('/components/font/Raleway-Regular.ttf') format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 @theme inline {
   --color-background: var(--background);
@@ -52,7 +52,7 @@
 } */
 
 body {
-  background: "#f9f2e9";
+  background: #f9f2e9;
   color: var(--foreground);
-  font-family: Raleway, sans-serif;
+  /* font-family: Raleway, sans-serif; */
 }
