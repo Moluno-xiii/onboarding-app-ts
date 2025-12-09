@@ -1,14 +1,14 @@
-import Link from "next/link";
-import { features, steps } from "@/data";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-
-const cardClass =
-  "flex flex-1 flex-col gap-3 rounded-xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md";
+import Hero from "@/components/Hero";
+import Hero2 from "@/components/Hero2";
 
 const LandingPage: React.FC = () => {
+
   return (
-    <div className="relative container mx-auto flex min-h-screen w-full flex-col overflow-x-hidden">
+    <div
+      className="bg-bg-color relative mx-auto flex min-h-screen w-full flex-col overflow-x-hidden"
+    >
       <Header />
 
       <main className="flex-1">
@@ -108,6 +108,8 @@ const LandingPage: React.FC = () => {
             </div>
           </section>
         </div>
+        <Hero />
+        <Hero2 />
       </main>
 
       <Footer />

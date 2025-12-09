@@ -18,7 +18,9 @@ export const Header: React.FC = () => {
 
   const linkClass = (href: string) =>
     `px-3 py-2 rounded-md text-sm font-medium ${
-      pathname === href ? "text-primary" : "text-gray-700"
+      pathname === href
+        ? "text-black bg-light-brown-gray rounded-full "
+        : "text-gray-700"
     }`;
 
   return (
@@ -26,7 +28,7 @@ export const Header: React.FC = () => {
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2">
-            <MdOutlineHub className="text-primary text-3xl" />
+            <MdOutlineHub className="text-yellow text-3xl" />
             <span className="font-macondo-swash text-lg font-bold tracking-[-0.015em] text-gray-900">
               Onboardify
             </span>
@@ -47,7 +49,7 @@ export const Header: React.FC = () => {
 
           <Link
             href="/signup"
-            className="bg-primary hover:bg-primary-dark ml-3 inline-flex items-center rounded-lg px-4 py-2 text-sm font-bold text-white transition-colors"
+            className="bg-yellow/80 hover:bg-light-black ml-3 inline-flex items-center rounded-full px-4 py-2 text-sm font-bold text-white transition-colors"
           >
             Get Started
           </Link>
@@ -88,7 +90,7 @@ export const Header: React.FC = () => {
               <Link
                 href="/signup"
                 onClick={() => setOpen(false)}
-                className="bg-primary hover:bg-primary-dark mt-2 inline-flex w-full items-center justify-center rounded-lg px-4 py-2 text-sm font-bold text-white transition-colors"
+                className="bg-yellow/80 hover:bg-light-black mt-2 inline-flex w-full items-center justify-center rounded-full px-4 py-2 text-sm font-bold text-white transition-colors"
               >
                 Get Started
               </Link>
