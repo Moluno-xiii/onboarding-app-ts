@@ -150,7 +150,7 @@ export default function CardsSection() {
       ref={mainRef}
     >
       <div className="mx-auto max-w-7xl text-center">
-        {/* Carousel (small→md) */}
+        {/* Carousel */}
         <p className="font-tay-bea text-light-black top-10 mb-4 block text-center text-sm font-bold tracking-widest uppercase lg:hidden">
           Features
         </p>

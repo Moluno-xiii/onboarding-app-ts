@@ -37,11 +37,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div
       lang="en"
-      className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 p-5 md:grid-cols-[200px_1fr]"
+      className="mx-auto grid w-full grid-cols-1 md:grid-cols-[200px_1fr] 2xl:grid-cols-[400px_1fr]"
     >
       <DashboardSidebar activeView={activeView} setActiveView={setActiveView} />
 
-      <main className="bg-light-brown-gray w-full">
+      <main className="bg-light-brown-gray w-full pb-16 md:pb-0">
         {activeView === "tours" && children}
         {activeView === "analytics" && <AnalyticsChart data={analyticsData} />}
       </main>

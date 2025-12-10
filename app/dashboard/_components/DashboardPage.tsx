@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/utils/supabaseClient";
 import { Plus, Edit2, Trash2 } from "lucide-react";
 import { User } from "@supabase/supabase-js";
+import { BiEditAlt } from "react-icons/bi";
 
 interface TourStep {
   id: string;
@@ -322,59 +323,87 @@ export default function ToursPage() {
     <div className="flex min-h-screen overflow-x-hidden text-white">
       <main className="h-screen flex-1 overflow-y-auto p-6 lg:p-10">
         <div className="mx-auto max-w-6xl space-y-8">
-          
           <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
             <div>
-              <h2 className="bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-3xl font-bold text-transparent lg:text-5xl">
-                Tour Manager
+              <h2 className="font-tay-bea text-3xl text-black lg:text-5xl">
+                Welcome Back!
               </h2>
-              <p className="mt-2 text-gray-100">
+              <p className="mt-2 text-lg text-gray-800">
                 Create and manage your interactive tours
               </p>
             </div>
             <div className="flex items-center space-x-4">
-              <div className="rounded-xl border border-[var(--color-darker)] bg-[var(--color-light-black)] p-3">
-                <span className="font-bold text-cyan-300">{tours.length}</span>
-                <span className="ml-2 text-gray-100">Tours</span>
+              <div className="rounded-lg border bg-black/80 px-8 py-3 text-lg">
+                <span className="text-yellow text-xl font-bold">
+                  {tours.length}
+                </span>
+                <span className="ml-2 text-gray-100">
+                  {tours.length === 0
+                    ? "No Tours"
+                    : tours.length === 1
+                      ? "Tour"
+                      : "Tours"}
+                </span>
               </div>
-              <div className="rounded-xl border border-[var(--color-darker)] bg-[var(--color-light-black)] p-3">
-                <span className="font-bold text-purple-300">
+
+              <div className="rounded-lg border bg-black/80 px-8 py-3 text-lg">
+                <span className="text-purple text-xl font-bold">
                   {tours.reduce(
                     (acc, tour) => acc + (tour.steps?.length ?? 0),
                     0,
                   )}
                 </span>
-                <span className="ml-2 text-gray-100">Steps</span>
-              </div>
-              <div className="rounded-xl border border-[var(--color-darker)] bg-[var(--color-light-black)] p-3">
-                <span className="font-bold text-pink-300">Just Now</span>
-                <span className="ml-2 text-gray-100">Last Updated</span>
+
+                <span className="ml-2 text-gray-100">
+                  {(() => {
+                    const totalSteps = tours.reduce(
+                      (acc, tour) => acc + (tour.steps?.length ?? 0),
+                      0,
+                    );
+
+                    return totalSteps === 0
+                      ? "No Steps"
+                      : totalSteps === 1
+                        ? "Step"
+                        : "Steps";
+                  })()}
+                </span>
               </div>
             </div>
           </div>
 
           {/* Create New Tour */}
-          <div className="rounded-2xl border border-white/10 bg-black/40 p-8">
-            <h3 className="mb-4 text-xl font-bold">Create New Tour</h3>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <input
-                placeholder="Tour Title"
-                className="rounded-lg border border-white/10 bg-gray-800 p-3"
-                value={newTourTitle}
-                onChange={(e) => setNewTourTitle(e.target.value)}
-              />
-              <input
-                placeholder="Tour Description"
-                className="rounded-lg border border-white/10 bg-gray-800 p-3"
-                value={newTourDesc}
-                onChange={(e) => setNewTourDesc(e.target.value)}
-              />
-            </div>
+          <div className="bg-light-brown/80 rounded-2xl border border-white/10 p-8">
+            <h3 className="mb-4 text-xl font-bold text-black">
+              Create New Tour
+            </h3>
+            <form className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div className="flex flex-col space-y-1">
+                <label className="text-gray-800">Tour Title</label>
+                <input
+                  placeholder="Enter tour title"
+                  className="bg-bg-color rounded-lg border border-white/10 p-3 text-black"
+                  value={newTourTitle}
+                  onChange={(e) => setNewTourTitle(e.target.value)}
+                />
+              </div>
+
+              <div className="flex flex-col space-y-1">
+                <label className="text-gray-800">Tour Description</label>
+                <input
+                  placeholder="Enter tour description"
+                  className="bg-bg-color rounded-lg border border-white/10 p-3 text-black"
+                  value={newTourDesc}
+                  onChange={(e) => setNewTourDesc(e.target.value)}
+                />
+              </div>
+            </form>
+
             <button
               onClick={handleAddTour}
-              className="mt-4 rounded-xl bg-cyan-600 px-6 py-3"
+              className="bg-yellow/80 hover:bg-light-black mt-4 inline-flex cursor-pointer items-center gap-2 rounded-xl px-6 py-3 transition-colors"
             >
-              <Plus className="mr-2 inline h-4 w-4" />
+              <Plus className="inline h-4 w-4" />
               Create Tour
             </button>
           </div>
@@ -383,18 +412,20 @@ export default function ToursPage() {
           {tours.map((tour) => (
             <div
               key={tour.id}
-              className="rounded-2xl border border-white/10 bg-black/30 p-8"
+              className="bg-light-brown/80 rounded-2xl border border-white/10 p-8"
             >
               {editingTourId === tour.id ? (
                 <div className="space-y-3">
                   <input
                     className="w-full rounded-lg border border-white/10 bg-gray-800 p-3"
                     value={editingTourTitle}
+                    placeholder="Enter tour title"
                     onChange={(e) => setEditingTourTitle(e.target.value)}
                   />
                   <input
                     className="w-full rounded-lg border border-white/10 bg-gray-800 p-3"
                     value={editingTourDesc}
+                    placeholder="Enter tour description"
                     onChange={(e) => setEditingTourDesc(e.target.value)}
                   />
                   <div className="flex gap-2">
@@ -414,23 +445,29 @@ export default function ToursPage() {
                 </div>
               ) : (
                 <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold">{tour.title}</h3>
-                    <p className="text-gray-300">{tour.description}</p>
-                    <p className="mt-1 text-sm text-gray-400">
-                      {tour.steps.length} Steps
+                  <div className="text-light-black">
+                    <h3 className="text-2xl font-bold capitalize">
+                      {tour.title}
+                    </h3>
+                    <p className="">{tour.description}</p>
+                    <p className="mt-1 text-sm">
+                      <span className="text-lg">{tour.steps.length} </span>
+                      Steps
                     </p>
                   </div>
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleEditTour(tour)}
-                      className="rounded-lg border border-white/10 bg-blue-600/20 p-2"
+                      className="cursor-pointer rounded-lg border border-white/70 bg-white/20 px-3 py-1 transition-colors duration-200 ease-in-out hover:bg-white/15"
                     >
-                      <Edit2 className="h-4 w-4" />
+                      {/* <Edit2 className="h-4 w-4" /> */}
+                      <BiEditAlt className="size-4" />
                     </button>
                     <button
                       onClick={() => handleDeleteTour(tour.id)}
-                      className="rounded-lg border border-white/10 bg-red-600/20 p-2"
+                      aria-label="Edit tour"
+                      title="Edit tour"
+                      className="cursor-pointer rounded-lg border border-white/70 bg-white/20 px-3 py-1 transition-colors duration-200 ease-in-out hover:bg-white/15"
                     >
                       <Trash2 className="h-4 w-4" />
                     </button>
@@ -441,7 +478,9 @@ export default function ToursPage() {
                         navigator.clipboard.writeText(embedCode);
                         alert("Embed code copied to clipboard!");
                       }}
-                      className="rounded-lg border border-white/10 bg-purple-600/20 p-2"
+                      aria-label="Edit tour"
+                      title="Edit tour"
+                      className="bg-yellow/80 hover:bg-light-black/80 cursor-pointer rounded-lg border border-white/10 p-2 transition-colors duration-200 ease-in-out"
                     >
                       Copy Embed Code
                     </button>
@@ -461,6 +500,8 @@ export default function ToursPage() {
                         <input
                           className="w-full rounded bg-gray-700 p-2"
                           value={editingStepTitle}
+                          aria-label="Edit tour"
+                          title="Edit tour"
                           onChange={(e) => setEditingStepTitle(e.target.value)}
                         />
                         <textarea
@@ -501,13 +542,15 @@ export default function ToursPage() {
                               setEditingStepTitle(step.title);
                               setEditingStepContent(step.content);
                             }}
-                            className="rounded border border-white/10 bg-blue-600/20 p-2"
+                            className="cursor-pointer rounded border border-white/10 bg-white/20 p-2 transition-colors duration-200 ease-in-out hover:bg-white/15"
                           >
-                            <Edit2 className="h-4 w-4" />
+                            <BiEditAlt className="h-4 w-4" />
                           </button>
                           <button
                             onClick={() => handleDeleteStep(tour.id, step.id)}
-                            className="rounded border border-white/10 bg-red-600/20 p-2"
+                            aria-label="Delete tour"
+                            title="Delete tour"
+                            className="cursor-pointer rounded border border-white/10 bg-white/20 p-2 transition-colors duration-200 ease-in-out hover:bg-white/15"
                           >
                             <Trash2 className="h-4 w-4" />
                           </button>
@@ -517,26 +560,43 @@ export default function ToursPage() {
                   </div>
                 ))}
                 {/* Add new step */}
-                <div className="mt-3 flex flex-col gap-2 md:flex-row">
-                  <input
-                    placeholder="Step Title"
-                    className="flex-1 rounded bg-gray-700 p-2"
-                    value={newSteps[tour.id]?.title || ""}
-                    onChange={(e) =>
-                      handleStepInputChange(tour.id, "title", e.target.value)
-                    }
-                  />
-                  <input
-                    placeholder="Step Content"
-                    className="flex-1 rounded bg-gray-700 p-2"
-                    value={newSteps[tour.id]?.content || ""}
-                    onChange={(e) =>
-                      handleStepInputChange(tour.id, "content", e.target.value)
-                    }
-                  />
+                <div className="mt-3 flex flex-col items-end gap-x-2 gap-y-4 md:flex-row">
+                  {/* Step Title */}
+                  <div className="flex w-full flex-1 flex-col gap-1">
+                    <label className="font-medium text-gray-800">
+                      Step Title
+                    </label>
+                    <input
+                      placeholder="Enter step title"
+                      className="rounded bg-gray-800/50 p-2 text-white"
+                      value={newSteps[tour.id]?.title || ""}
+                      onChange={(e) =>
+                        handleStepInputChange(tour.id, "title", e.target.value)
+                      }
+                    />
+                  </div>
+
+                  {/* Step Content */}
+                  <div className="flex w-full flex-1 flex-col gap-1">
+                    <label className="font-medium text-gray-800">
+                      Step Content
+                    </label>
+                    <input
+                      placeholder="Enter step content"
+                      className="rounded bg-gray-800/50 p-2 text-white"
+                      value={newSteps[tour.id]?.content || ""}
+                      onChange={(e) =>
+                        handleStepInputChange(
+                          tour.id,
+                          "content",
+                          e.target.value,
+                        )
+                      }
+                    />
+                  </div>
                   <button
                     onClick={() => handleAddStep(tour.id)}
-                    className="rounded-lg bg-cyan-600 px-4 py-2"
+                    className="bg-yellow hover:bg-light-black h-fit w-full cursor-pointer rounded-lg px-4 py-2 transition-colors duration-200 ease-in-out md:w-fit"
                   >
                     <Plus className="mr-1 inline h-4 w-4" /> Add Step
                   </button>
