@@ -8,12 +8,11 @@ export default function ContactSection({
   email = "andrew@onboardify.xyz",
 }: ContactSectionProps) {
   return (
-    <section className="font-tay-bea flex min-h-[600px] w-full items-center justify-center overflow-hidden bg-[#1c1c1c]">
+    <footer className="font-tay-bea flex min-h-[600px] w-full items-center justify-center overflow-hidden bg-[#1c1c1c]">
       <div className="relative container mx-auto w-full rounded-3xl bg-[#1c1c1c]">
         {/* Decorative Background Elements positioned relative to the container */}
         <div className="relative z-10 px-4 py-20 text-center sm:px-8 sm:py-24 lg:py-30">
           <div className="font-marker relative mx-auto flex max-w-4xl flex-col items-center justify-center leading-none tracking-tight text-white md:flex-row md:flex-wrap md:items-baseline md:gap-4">
-            {/* -- READY -- */}
             <div className="relative z-10">
               {/* Purple dashes decoration */}
               <div className="absolute -top-4 -left-16 h-20 w-20 -rotate-12 opacity-90 md:-top-2 md:-left-20 md:h-24 md:w-24">
@@ -75,6 +74,6 @@ export default function ContactSection({
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 }
