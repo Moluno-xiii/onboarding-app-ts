@@ -32,14 +32,14 @@ const InstallGuide: React.FC = () => {
 
   const scriptTag = `<script
   async
-  src="https://cdn.yourservice.com/tour.js"
+  data-id="YOUR_DATA_ID"
+  src="https://tours-embed-widget-vite.vercel.app/main.iife.js"
 ></script>`;
+
 
   const initCode = `<script>
   window.YourTour.init({
-    apiKey: 'YOUR_API_KEY',
     tourId: 'YOUR_TOUR_ID',
-    userId: 'current_user_id'
   });
 </script>`;
 
@@ -61,14 +61,14 @@ const InstallGuide: React.FC = () => {
         </h3>
 
         <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4">
+          {/* <div className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4">
             <div className="bg-primary/20 text-purple flex size-10 items-center justify-center rounded-lg">
               <MdKey className="text-xl" />
             </div>
             <p className="flex-1 truncate font-medium text-gray-800">
               Your unique API key
             </p>
-          </div>
+          </div> */}
 
           <div className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4">
             <div className="bg-primary/20 text-purple flex size-10 items-center justify-center rounded-lg">

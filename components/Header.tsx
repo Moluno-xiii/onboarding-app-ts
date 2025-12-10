@@ -14,7 +14,7 @@ const NAV = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Docs", href: "/docs" },
-  { label: "Dashboard", href: "/tours" },
+  { label: "Dashboard", href: "/dashboard" },
 ];
 
 export const Header: React.FC = () => {

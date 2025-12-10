@@ -1,7 +1,7 @@
 "use client";
 
+import supabase from "@/app/utils/supabase/supabase";
 import { emailRegex } from "@/constants";
-import { supabase } from "@/utils/supabaseClient";
 import { User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import {
@@ -141,7 +141,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       );
 
       if (error) throw new Error(error.message);
-      router.push("/tours");
+      router.push("/dashboard");
       setUser(loginData.user);
       toast.success("Login successful");
     } catch (error) {

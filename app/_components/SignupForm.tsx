@@ -13,7 +13,7 @@ const SignupForm = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (user) router.push("/tours");
+    if (user) router.push("/dashboard");
   }, [user, router]);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
