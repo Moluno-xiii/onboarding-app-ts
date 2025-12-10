@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { supabase } from "@/utils/supabaseClient";
-import { Plus, Edit2, Trash2, Save, X } from "lucide-react";
+import { Plus, Edit2, Trash2 } from "lucide-react";
 import { User } from "@supabase/supabase-js";
 
 interface TourStep {
@@ -21,7 +21,6 @@ interface Tour {
   steps: TourStep[];
   user_id?: string;
 }
-
 
 interface SupabaseStepRow {
   id: string;
@@ -46,16 +45,13 @@ export default function ToursPage() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
 
-  
   const [newTourTitle, setNewTourTitle] = useState("");
   const [newTourDesc, setNewTourDesc] = useState("");
 
-  
   const [editingTourId, setEditingTourId] = useState<string | null>(null);
   const [editingTourTitle, setEditingTourTitle] = useState("");
   const [editingTourDesc, setEditingTourDesc] = useState("");
 
-  
   const [newSteps, setNewSteps] = useState<{
     [tourId: string]: { title: string; content: string };
   }>({});
@@ -64,7 +60,6 @@ export default function ToursPage() {
   const [editingStepTitle, setEditingStepTitle] = useState("");
   const [editingStepContent, setEditingStepContent] = useState("");
 
-  
   useEffect(() => {
     const init = async () => {
       const { data } = await supabase.auth.getSession();
@@ -81,7 +76,7 @@ export default function ToursPage() {
     return () => listener.subscription.unsubscribe();
   }, []);
 
-  
+  // Fetch tours
   useEffect(() => {
     if (!user) return;
 
@@ -123,7 +118,7 @@ export default function ToursPage() {
     fetchTours();
   }, [user]);
 
- 
+  // Add new tour
   const handleAddTour = async () => {
     if (!user || !newTourTitle.trim()) return;
 
@@ -143,7 +138,6 @@ export default function ToursPage() {
       if (error) throw error;
 
       setTours([{ ...(tour as SupabaseTourRow), steps: [] }, ...tours]);
-
       setNewTourTitle("");
       setNewTourDesc("");
     } catch (err) {
@@ -152,7 +146,7 @@ export default function ToursPage() {
     }
   };
 
- 
+  // Edit tour
   const handleEditTour = (tour: Tour) => {
     setEditingTourId(tour.id);
     setEditingTourTitle(tour.title);
@@ -189,14 +183,12 @@ export default function ToursPage() {
     }
   };
 
-  
   const handleDeleteTour = async (id: string) => {
     if (!confirm("Delete this tour?")) return;
 
     try {
       await supabase.from("steps").delete().eq("tour_id", id);
       await supabase.from("tours").delete().eq("id", id);
-
       setTours(tours.filter((t) => t.id !== id));
     } catch (err) {
       console.error(err);
@@ -204,7 +196,6 @@ export default function ToursPage() {
     }
   };
 
-  
   const handleStepInputChange = (
     tourId: string,
     field: "title" | "content",
@@ -261,7 +252,6 @@ export default function ToursPage() {
     }
   };
 
- 
   const handleSaveStep = async (tourId: string, stepId: string) => {
     try {
       const { data: updated, error } = await supabase
@@ -307,7 +297,6 @@ export default function ToursPage() {
     }
   };
 
- 
   const handleDeleteStep = async (tourId: string, stepId: string) => {
     try {
       await supabase.from("steps").delete().eq("id", stepId);
@@ -325,55 +314,48 @@ export default function ToursPage() {
     }
   };
 
+  useEffect(() => {
+    console.log("Fetched tours:", tours);
+  }, [tours]);
+
   return (
     <div className="flex min-h-screen overflow-x-hidden text-white">
       <main className="h-screen flex-1 overflow-y-auto p-6 lg:p-10">
         <div className="mx-auto max-w-6xl space-y-8">
-
+          
           <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
-            {" "}
             <div>
-              {" "}
               <h2 className="bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-3xl font-bold text-transparent lg:text-5xl">
-                {" "}
-                Tour Manager{" "}
-              </h2>{" "}
+                Tour Manager
+              </h2>
               <p className="mt-2 text-gray-100">
                 Create and manage your interactive tours
-              </p>{" "}
-            </div>{" "}
+              </p>
+            </div>
             <div className="flex items-center space-x-4">
-              {" "}
               <div className="rounded-xl border border-[var(--color-darker)] bg-[var(--color-light-black)] p-3">
-                {" "}
-                <span className="font-bold text-cyan-300">
-                  {tours.length}
-                </span>{" "}
-                <span className="ml-2 text-gray-100">Tours</span>{" "}
-              </div>{" "}
+                <span className="font-bold text-cyan-300">{tours.length}</span>
+                <span className="ml-2 text-gray-100">Tours</span>
+              </div>
               <div className="rounded-xl border border-[var(--color-darker)] bg-[var(--color-light-black)] p-3">
-                {" "}
                 <span className="font-bold text-purple-300">
-                  {" "}
                   {tours.reduce(
                     (acc, tour) => acc + (tour.steps?.length ?? 0),
                     0,
-                  )}{" "}
-                </span>{" "}
-                <span className="ml-2 text-gray-100">Steps</span>{" "}
-              </div>{" "}
+                  )}
+                </span>
+                <span className="ml-2 text-gray-100">Steps</span>
+              </div>
               <div className="rounded-xl border border-[var(--color-darker)] bg-[var(--color-light-black)] p-3">
-                {" "}
-                <span className="font-bold text-pink-300">Just Now</span>{" "}
-                <span className="ml-2 text-gray-100">Last Updated</span>{" "}
-              </div>{" "}
-            </div>{" "}
+                <span className="font-bold text-pink-300">Just Now</span>
+                <span className="ml-2 text-gray-100">Last Updated</span>
+              </div>
+            </div>
           </div>
 
-          {/* CREATE TOUR */}
+          {/* Create New Tour */}
           <div className="rounded-2xl border border-white/10 bg-black/40 p-8">
             <h3 className="mb-4 text-xl font-bold">Create New Tour</h3>
-
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <input
                 placeholder="Tour Title"
@@ -388,7 +370,6 @@ export default function ToursPage() {
                 onChange={(e) => setNewTourDesc(e.target.value)}
               />
             </div>
-
             <button
               onClick={handleAddTour}
               className="mt-4 rounded-xl bg-cyan-600 px-6 py-3"
@@ -398,13 +379,12 @@ export default function ToursPage() {
             </button>
           </div>
 
-          
+          {/* Tours List */}
           {tours.map((tour) => (
             <div
               key={tour.id}
               className="rounded-2xl border border-white/10 bg-black/30 p-8"
             >
-              
               {editingTourId === tour.id ? (
                 <div className="space-y-3">
                   <input
@@ -417,7 +397,6 @@ export default function ToursPage() {
                     value={editingTourDesc}
                     onChange={(e) => setEditingTourDesc(e.target.value)}
                   />
-
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleSaveTour(tour.id)}
@@ -442,7 +421,6 @@ export default function ToursPage() {
                       {tour.steps.length} Steps
                     </p>
                   </div>
-
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleEditTour(tour)}
@@ -456,18 +434,28 @@ export default function ToursPage() {
                     >
                       <Trash2 className="h-4 w-4" />
                     </button>
+                    {/* Copy Embed Code Button */}
+                    <button
+                      onClick={() => {
+                        const embedCode = `<script data-id="${tour.id}" src="https://tours-embed-widget-vite.vercel.app/main.iife.js"></script>`;
+                        navigator.clipboard.writeText(embedCode);
+                        alert("Embed code copied to clipboard!");
+                      }}
+                      className="rounded-lg border border-white/10 bg-purple-600/20 p-2"
+                    >
+                      Copy Embed Code
+                    </button>
                   </div>
                 </div>
               )}
 
-              {/* STEPS */}
+              {/* Steps */}
               <div className="mt-6 space-y-4">
                 {tour.steps.map((step) => (
                   <div
                     key={step.id}
                     className="flex justify-between rounded-lg bg-gray-800/50 p-4"
                   >
-                    
                     {editingStepId === step.id ? (
                       <div className="flex-1 space-y-2">
                         <input
@@ -483,7 +471,6 @@ export default function ToursPage() {
                           }
                           rows={2}
                         />
-
                         <div className="flex gap-2">
                           <button
                             onClick={() => handleSaveStep(tour.id, step.id)}
@@ -507,7 +494,6 @@ export default function ToursPage() {
                             {step.content}
                           </p>
                         </div>
-
                         <div className="flex gap-2">
                           <button
                             onClick={() => {
@@ -530,8 +516,7 @@ export default function ToursPage() {
                     )}
                   </div>
                 ))}
-
-              
+                {/* Add new step */}
                 <div className="mt-3 flex flex-col gap-2 md:flex-row">
                   <input
                     placeholder="Step Title"
@@ -549,7 +534,6 @@ export default function ToursPage() {
                       handleStepInputChange(tour.id, "content", e.target.value)
                     }
                   />
-
                   <button
                     onClick={() => handleAddStep(tour.id)}
                     className="rounded-lg bg-cyan-600 px-4 py-2"
