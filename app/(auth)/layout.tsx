@@ -10,7 +10,7 @@ export default function Layout({
   return (
     <div
       lang="en"
-      className="flex min-h-full min-w-full flex-1 flex-col items-center justify-center gap-y-6 md:gap-10"
+      className="flex min-h-full min-w-full mt-10 flex-1 flex-col items-center justify-center gap-y-6 md:gap-10"
     >
       <Link href="/" className="flex items-center gap-2">
         <MdOutlineHub className="text-yellow text-3xl" />
