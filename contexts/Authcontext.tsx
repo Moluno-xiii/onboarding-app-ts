@@ -158,9 +158,9 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       setIsLoading(true);
       const { error } = await supabase.auth.signOut();
       if (error) throw new Error(error.message);
+      router.push("/");
       toast.success("Logout successful");
       setUser(null);
-      router.push("/");
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Unexpected error";

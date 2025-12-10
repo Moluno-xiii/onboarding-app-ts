@@ -1,16 +1,20 @@
 "use client";
 
+import { useAuth } from "@/contexts/Authcontext";
 import Link from "next/link";
-import { FormEvent, useActionState, useState } from "react";
-import { useFormStatus } from "react-dom";
+import { useRouter } from "next/navigation";
+import { FormEvent, useEffect, useState } from "react";
 import FormItem from "./FormItem";
 import Button from "./ui/Button";
-import { login } from "../utils/actions";
-import { useAuth } from "@/contexts/Authcontext";
 
 const LoginForm = () => {
   const [error, setError] = useState<string | null>("");
-  const { login, isLoading } = useAuth();
+  const { login, isLoading, user } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user) router.push("/dashboard");
+  }, [user, router]);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,7 +65,7 @@ const LoginForm = () => {
       <Button
         disabled={isLoading}
         type="submit"
-        text={isLoading ? "Signing up..." : "Signup"}
+        text={isLoading ? "Logging in..." : "Login"}
         additionalStyles="self-center"
       />{" "}
     </form>
