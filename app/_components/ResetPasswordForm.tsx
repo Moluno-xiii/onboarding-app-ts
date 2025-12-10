@@ -57,7 +57,10 @@ const ResetPasswordForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col items-center gap-y-5"
+    >
       <FormItem required error={error.email} label="Email" name="email" />
       <FormItem
         type="password"

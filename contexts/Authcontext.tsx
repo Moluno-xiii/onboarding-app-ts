@@ -141,7 +141,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       );
 
       if (error) throw new Error(error.message);
-      router.push("/dashboard");
+      router.push("/tours");
       setUser(loginData.user);
       toast.success("Login successful");
     } catch (error) {
