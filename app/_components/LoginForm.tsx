@@ -13,7 +13,7 @@ const LoginForm = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (user) router.push("/dashboard");
+    if (user) router.push("/tours");
   }, [user, router]);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
