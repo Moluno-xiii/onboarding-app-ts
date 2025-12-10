@@ -1,11 +1,11 @@
 import Link from "next/link";
 import React from "react";
-// import { features, steps } from "@/data";
+import { features, steps } from "@/data";
 import Image from "next/image";
 
 export default function Hero() {
-  // const cardClass =
-  //   "flex flex-1 flex-col gap-3 rounded-xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md";
+  const cardClass =
+    "flex flex-1 flex-col gap-3 rounded-xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md";
   return (
     <div className="w-full py-10">
       {/* Hero */}
@@ -54,7 +54,7 @@ export default function Hero() {
                   <span className="truncate">Try Demo</span>
                 </Link>
                 <Link
-                  href="/docs"
+                  href="/"
                   className="border-light-brown z-10 flex h-10 max-w-120 min-w-38 items-center justify-center rounded-full border px-8 text-sm font-bold transition-colors hover:bg-gray-100 @[30rem]:h-12 @[30rem]:px-5 @[30rem]:text-base"
                 >
                   <span className="truncate">Docs</span>
