@@ -3,6 +3,7 @@ type CardProps = {
   description: string;
   icon: string;
   borderColor?: string;
+  className?: string;
 };
 
 const Card: React.FC<CardProps> = ({
@@ -10,10 +11,11 @@ const Card: React.FC<CardProps> = ({
   description,
   icon,
   borderColor = "border-[#FFD24D]",
+  className,
 }) => {
   return (
     <div
-      className="bg-card relative flex h-100 w-full flex-col items-center justify-between rounded-[2.5rem] p-8 shadow-sm transition-transform hover:scale-105 md:max-w-sm"
+      className={`bg-card relative flex h-100 w-full flex-col items-center justify-between rounded-[2.5rem] p-8 shadow-sm transition-transform hover:scale-105 md:max-w-sm ${className}`}
       style={{ border: `4px solid ${borderColor}` }}
     >
       <div className="mb-8 flex h-40 w-40 items-center justify-center">
