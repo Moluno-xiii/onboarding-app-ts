@@ -1,10 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import {
-  MdOutlineEmojiObjects,
-  MdOutlineHub,
-  MdOutlineWidgets,
-} from "react-icons/md";
+import { MdOutlineEmojiObjects, MdOutlineWidgets } from "react-icons/md";
 import { benefits } from "@/data";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -18,8 +14,6 @@ const AboutPage: React.FC = () => {
       <Header />
 
       <main className="mx-auto w-full flex-1 px-6 py-6">
-       
-
         {/* Title & subtitle */}
         <h1 className="mb-2 text-3xl leading-tight font-bold text-gray-900">
           Effortless Onboarding for Your Users
