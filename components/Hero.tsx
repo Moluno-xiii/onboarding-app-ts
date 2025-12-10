@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <div className="w-full py-10" style={{ zIndex: 12 }}>
       {/* Hero */}
-      <section className="mb-10 min-h-100 items-center justify-center gap-6 overflow-hidden rounded-xl lg:py-6">
+      <section className="mb-10 min-h-100 items-center justify-center gap-6 rounded-xl lg:py-6">
         <div className="justify-center sm:flex sm:flex-row">
           <div className="relative mt-3 -mb-10 flex flex-col text-5xl max-sm:justify-center max-sm:text-center sm:order-2 sm:text-6xl lg:flex lg:text-8xl">
             <div className="mx-auto flex justify-center max-sm:translate-y-7 max-sm:-rotate-10 sm:-translate-x-30">
