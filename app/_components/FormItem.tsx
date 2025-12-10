@@ -10,11 +10,16 @@ interface Props extends ComponentProps<"input"> {
 const FormItem = ({ error, name, label, type = "text", ...rest }: Props) => {
   return (
     <div className="flex flex-col gap-y-2">
-      <div className="flex flex-row items-center justify-between gap-5">
+      <div className="flex flex-row items-center justify-between gap-5 outline-black active:outline-black">
         <label htmlFor={name}>{label}</label>
         <span className="text-sm text-red-600">{error}</span>
       </div>
-      <input type={type} name={name} className="input" {...rest} />
+      <input
+        type={type}
+        name={name}
+        className="input outline-light-black active:outline-light-black border-light-black"
+        {...rest}
+      />
     </div>
   );
 };
