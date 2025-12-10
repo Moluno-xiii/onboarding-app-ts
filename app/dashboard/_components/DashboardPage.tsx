@@ -59,6 +59,10 @@ export default function ToursPage() {
   const [editingStepId, setEditingStepId] = useState<string | null>(null);
   const [editingStepTitle, setEditingStepTitle] = useState("");
   const [editingStepContent, setEditingStepContent] = useState("");
+  const [addingTour, setAddingTour] = useState(false);
+  const [addingStep, setAddingStep] = useState<{ [tourId: string]: boolean }>(
+    {},
+  );
 
   useEffect(() => {
     const init = async () => {
@@ -123,6 +127,8 @@ export default function ToursPage() {
     if (!user || !newTourTitle.trim()) return;
 
     try {
+      setAddingTour(true); // start loading
+
       const { data: tour, error } = await supabase
         .from("tours")
         .insert([
@@ -143,6 +149,8 @@ export default function ToursPage() {
     } catch (err) {
       console.error(err);
       alert("Failed to create tour");
+    } finally {
+      setAddingTour(false); // stop loading
     }
   };
 
@@ -212,6 +220,8 @@ export default function ToursPage() {
     if (!title?.trim()) return;
 
     try {
+      setAddingStep((prev) => ({ ...prev, [tourId]: true })); // start loading
+
       const parentTour = tours.find((t) => t.id === tourId);
 
       const { data: step, error } = await supabase
@@ -249,6 +259,8 @@ export default function ToursPage() {
     } catch (err) {
       console.error(err);
       alert("Failed to add step");
+    } finally {
+      setAddingStep((prev) => ({ ...prev, [tourId]: false })); // stop loading
     }
   };
 
@@ -322,7 +334,6 @@ export default function ToursPage() {
     <div className="flex min-h-screen overflow-x-hidden text-white">
       <main className="h-screen flex-1 overflow-y-auto p-6 lg:p-10">
         <div className="mx-auto max-w-6xl space-y-8">
-          
           <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
             <div>
               <h2 className="bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-3xl font-bold text-transparent lg:text-5xl">
@@ -373,9 +384,15 @@ export default function ToursPage() {
             <button
               onClick={handleAddTour}
               className="mt-4 rounded-xl bg-cyan-600 px-6 py-3"
+              disabled={addingTour}
             >
-              <Plus className="mr-2 inline h-4 w-4" />
-              Create Tour
+              {addingTour ? (
+                "Creating..."
+              ) : (
+                <>
+                  <Plus className="mr-2 inline h-4 w-4" /> Create Tour
+                </>
+              )}
             </button>
           </div>
 
@@ -537,8 +554,15 @@ export default function ToursPage() {
                   <button
                     onClick={() => handleAddStep(tour.id)}
                     className="rounded-lg bg-cyan-600 px-4 py-2"
+                    disabled={addingStep[tour.id]}
                   >
-                    <Plus className="mr-1 inline h-4 w-4" /> Add Step
+                    {addingStep[tour.id] ? (
+                      "Adding..."
+                    ) : (
+                      <>
+                        <Plus className="mr-1 inline h-4 w-4" /> Add Step
+                      </>
+                    )}
                   </button>
                 </div>
               </div>
