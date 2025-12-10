@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { tours } from "@/data/mockTours"; 
 
-// PUT /api/tours/:id/steps/:stepId
+
 export async function PUT(
   req: Request,
   { params }: { params: { id: string; stepId: string } }
