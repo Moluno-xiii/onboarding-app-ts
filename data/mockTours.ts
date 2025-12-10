@@ -1,4 +1,4 @@
-// data/mockTours.ts
+
 export type Step = {
   id: string;
   tourId: string;
