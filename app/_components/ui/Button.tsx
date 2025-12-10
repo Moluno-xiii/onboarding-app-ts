@@ -17,7 +17,7 @@ const modifiedStyles: Record<
     "bg-transparent hover:text-white py-2 md:py-[15px] border hover:bg-darker border-darker  text-darker",
   link: "bg-transparent hover:text-primary text-darker border-none",
   error:
-    "bg-red-600 hover:bg-red-600/70   md:py-[15px] border-none  text-white border-none",
+    "bg-red-600 hover:bg-red-600/80 md:py-3 border-none text-white border-none w-full justify-center",
 };
 
 const Button: React.FC<Props> = ({
@@ -28,7 +28,7 @@ const Button: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className={`${modifiedStyles[variant]} disabled:text-darker flex w-fit cursor-pointer flex-row items-center gap-x-1 rounded-lg px-8 uppercase transition-all duration-200 disabled:cursor-not-allowed disabled:bg-slate-300 max-md:text-[13px] ${additionalStyles}`}
+      className={`${modifiedStyles[variant]} font-raleway disabled:text-darker flex w-fit cursor-pointer flex-row items-center gap-x-1 rounded-lg px-8 uppercase transition-all duration-200 disabled:cursor-not-allowed disabled:bg-slate-300 max-md:text-[13px] ${additionalStyles}`}
       {...rest}
     >
       {text}
