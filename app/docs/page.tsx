@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 
 import { MdKey, MdArticle, MdInfo, MdPlayCircle } from "react-icons/md";
 import { CodeBlock } from "@/components/CodeBlock";
+import ContactSection from "@/components/ContactSection";
 
 const InstallGuide: React.FC = () => {
   const [copied1, setCopied1] = useState(false);
@@ -48,7 +48,7 @@ const InstallGuide: React.FC = () => {
       <Header />
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-8">
-        <h2 className="mb-3 text-3xl leading-tight font-bold text-gray-900">
+        <h2 className="mb-3 text-3xl leading-tight font-tay-bea text-gray-900">
           Installation Guide — Embed Your Tour
         </h2>
         <p className="mb-6 text-base leading-relaxed text-gray-600">
@@ -56,13 +56,13 @@ const InstallGuide: React.FC = () => {
           into your website in minutes.
         </p>
 
-        <h3 className="mb-3 pt-5 text-xl font-bold text-gray-900">
+        <h3 className="mb-3 pt-5 text-xl font-tay-bea text-gray-900">
           Prerequisites
         </h3>
 
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4">
-            <div className="bg-primary/20 text-primary flex size-10 items-center justify-center rounded-lg">
+            <div className="bg-primary/20 text-purple flex size-10 items-center justify-center rounded-lg">
               <MdKey className="text-xl" />
             </div>
             <p className="flex-1 truncate font-medium text-gray-800">
@@ -71,7 +71,7 @@ const InstallGuide: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-4 rounded-xl border border-gray-200 bg-white p-4">
-            <div className="bg-primary/20 text-primary flex size-10 items-center justify-center rounded-lg">
+            <div className="bg-primary/20 text-purple flex size-10 items-center justify-center rounded-lg">
               <MdArticle className="text-xl" />
             </div>
             <p className="flex-1 truncate font-medium text-gray-800">
@@ -80,7 +80,7 @@ const InstallGuide: React.FC = () => {
           </div>
         </div>
 
-        <h3 className="mb-3 pt-8 text-xl font-bold text-gray-900">
+        <h3 className="mb-3 pt-8 text-xl font-tay-bea text-gray-900">
           1. Add the Script Tag
         </h3>
         <p className="mb-4 text-gray-600">
@@ -94,7 +94,7 @@ const InstallGuide: React.FC = () => {
           onCopy={() => safeCopy(scriptTag, setCopied1)}
         />
 
-        <h3 className="mb-3 pt-8 text-lg font-bold text-gray-900">
+        <h3 className="mb-3 pt-8 text-lg font-tay-bea text-gray-900">
           2. Initialize the Tour
         </h3>
         <p className="mb-4 text-gray-600">
@@ -108,30 +108,30 @@ const InstallGuide: React.FC = () => {
         />
 
         <div className="bg-primary/10 mt-6 flex items-start gap-4 rounded-xl p-4">
-          <MdInfo className="text-primary mt-1 text-xl" />
-          <p className="text-primary/90 text-sm leading-relaxed">
-            <strong className="text-primary font-semibold">Important:</strong>{" "}
+          <MdInfo className="text-purple mt-1 text-xl" />
+          <p className="text-purple/90 text-sm leading-relaxed">
+            <strong className="text-purple font-semibold">Important:</strong>{" "}
             Replace <code>YOUR_API_KEY</code> with your actual credentials.
           </p>
         </div>
 
-        <h3 className="mt-10 mb-3 text-lg font-bold text-gray-900">
+        <h3 className="mt-10 mb-3 text-lg font-tay-bea text-gray-900">
           Need Help?
         </h3>
-        <p className="mb-6 text-gray-600">
-          Check out our live demo or contact our support team.
+        <p className="mb-6 text-gray-600 ">
+          Check out our live demo or contat our support team.
         </p>
 
         <Link
           href="/"
-          className="bg-primary shadow-primary/30 hover:bg-primary-dark flex w-full items-center justify-center gap-2 rounded-xl py-4 text-base font-bold text-white shadow-lg transition-transform active:scale-95"
+          className="bg-yellow mb-10 shadow-primary/30 hover:bg-light-black flex w-full items-center justify-center gap-2 rounded-xl py-4 text-base font-tay-bea text-white shadow-lg transition-transform active:scale-95"
         >
           <MdPlayCircle className="text-xl" />
           View a Live Demo
         </Link>
       </main>
 
-      <Footer />
+      <ContactSection />
     </div>
   );
 };

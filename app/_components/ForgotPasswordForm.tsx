@@ -44,7 +44,10 @@ const ForgotPasswordForm: React.FC = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col items-center gap-y-5"
+    >
       <FormItem required error={null} label="Email" name="email" />
       <Button
         text={
