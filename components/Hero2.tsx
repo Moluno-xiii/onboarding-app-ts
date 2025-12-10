@@ -109,9 +109,9 @@ export default function Hero2() {
 
       <section
         style={{ opacity: 0, zIndex: 0 }}
-        className="note2 font-tay-bea absolute w-full  px-4 pt-20 text-5xl leading-[0.9] sm:py-32 sm:text-6xl lg:text-8xl"
+        className="note2 font-tay-bea absolute w-full px-4 pt-20 text-5xl leading-[0.9] sm:py-32 sm:text-6xl lg:text-8xl"
       >
-        <div className=" mx-auto">
+        <div className="mx-auto">
           <GuideNote2 />
         </div>
       </section>

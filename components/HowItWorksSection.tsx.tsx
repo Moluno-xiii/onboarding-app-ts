@@ -37,7 +37,7 @@ export default function HowItWorksSection() {
   ];
 
   return (
-    <section className="bg-text relative w-full overflow-hidden rounded-[3rem] px-6 py-24">
+    <section className="bg-text relative w-full overflow-x-hidden rounded-[3rem] px-6 py-24">
       {/* -- HEADER -- */}
       <div className="relative mx-auto mb-12 max-w-6xl text-center">
         <span className="font-raleway mb-4 block text-sm font-bold tracking-widest text-gray-400 uppercase">
