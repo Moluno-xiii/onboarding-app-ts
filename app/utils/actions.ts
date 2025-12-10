@@ -99,7 +99,7 @@ const login = async (_: any, formData: FormData): Promise<LoginReturnType> => {
     };
   }
   console.log("user data", data);
-  redirect("/dashboard/overview");
+  redirect("/dashboard");
 };
 
 const logout = async (): Promise<LogoutReturnType> => {
@@ -120,6 +120,7 @@ const getUser = async (): Promise<User | null> => {
 
   const { error, data } = await supabase.auth.getUser();
   if (error) {
+    console.log("get user error", error.message);
     return null;
   }
   return data.user;

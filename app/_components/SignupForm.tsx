@@ -1,23 +1,38 @@
 "use client";
 
+import { useAuth } from "@/contexts/Authcontext";
 import Link from "next/link";
-import { useActionState } from "react";
-import { useFormStatus } from "react-dom";
+import { FormEvent, useState } from "react";
 import FormItem from "./FormItem";
 import Button from "./ui/Button";
-import { signup } from "../utils/actions";
 
 const SignupForm = () => {
-  const [state, formAction] = useActionState(signup, {
-    error: { email: null, password: null },
-    success: false,
-  });
+  const [error, setError] = useState<string | null>("");
+  const { signup, isLoading } = useAuth();
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData) as {
+      email: string;
+      password: string;
+      confirmPassword: string;
+      displayName: string;
+    };
+    signup({
+      userEmail: data.email.trim(),
+      confirmPassword: data.confirmPassword,
+      userPassword: data.password,
+      displayName: data.displayName.trim(),
+      setErrorCb: setError,
+    });
+  };
   return (
-    <form action={formAction} className="flex flex-col items-center gap-y-5">
-      <FormItem error={state.error.email} label="Email" name="email" required />
+    <form onSubmit={onSubmit} className="flex flex-col items-center gap-y-5">
+      <FormItem error={null} label="Email" name="email" required />
       <FormItem error={null} label="Display Name" name="displayName" required />
       <FormItem
-        error={state.error.password}
+        error={null}
         label="Password"
         name="password"
         required
@@ -25,13 +40,14 @@ const SignupForm = () => {
         minLength={8}
       />
       <FormItem
-        error={state.error.password}
+        error={null}
         label="Confirm password"
-        name="confirm-password"
+        name="confirmPassword"
         required
         type="password"
         minLength={8}
       />
+      <span className="text-sm text-red-600">{error}</span>
       <p className="">
         Already have an account?{" "}
         <Link
@@ -41,27 +57,14 @@ const SignupForm = () => {
           Login
         </Link>{" "}
       </p>
-      <SubmitButton />
-      {/* {state.success && (
-        <p className="text-green-600 text-xl md:text-2xl text-center">
-          Signup successful, check your email for instructions.
-        </p>
-      )} */}
+      <Button
+        disabled={isLoading}
+        type="submit"
+        text={isLoading ? "Signing up..." : "Signup"}
+        additionalStyles="self-center"
+      />{" "}
     </form>
   );
 };
 
 export default SignupForm;
-
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      disabled={pending}
-      type="submit"
-      text={pending ? "Signing up..." : "Signup"}
-      additionalStyles="self-center"
-    />
-  );
-};

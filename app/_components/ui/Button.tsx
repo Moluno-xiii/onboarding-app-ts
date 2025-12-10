@@ -3,16 +3,21 @@ import { MdChevronRight } from "react-icons/md";
 
 interface Props extends ComponentProps<"button"> {
   text: string;
-  variant?: "default" | "transparent" | "link";
+  variant?: "default" | "transparent" | "link" | "error";
   additionalStyles?: string;
 }
 
-const modifiedStyles: Record<"default" | "transparent" | "link", string> = {
+const modifiedStyles: Record<
+  "default" | "transparent" | "link" | "error",
+  string
+> = {
   default:
-    "bg-primary hover:bg-primary/70 py-2 md:py-[15px] border-none text-light",
+    "bg-primary hover:bg-primary/70 py-2 md:py-[15px] border-none text-white",
   transparent:
-    "bg-transparent hover:text-light py-2 md:py-[15px] border hover:bg-darker border-darker  text-darker",
+    "bg-transparent hover:text-white py-2 md:py-[15px] border hover:bg-darker border-darker  text-darker",
   link: "bg-transparent hover:text-primary text-darker border-none",
+  error:
+    "bg-red-600 hover:bg-red-600/70   md:py-[15px] border-none  text-white border-none",
 };
 
 const Button: React.FC<Props> = ({
@@ -23,7 +28,7 @@ const Button: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className={`${modifiedStyles[variant]} flex cursor-pointer w-fit disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-darker flex-row rounded-lg items-center gap-x-1 px-8 uppercase transition-all duration-200 max-md:text-[13px] ${additionalStyles}`}
+      className={`${modifiedStyles[variant]} disabled:text-darker flex w-fit cursor-pointer flex-row items-center gap-x-1 rounded-lg px-8 uppercase transition-all duration-200 disabled:cursor-not-allowed disabled:bg-slate-300 max-md:text-[13px] ${additionalStyles}`}
       {...rest}
     >
       {text}

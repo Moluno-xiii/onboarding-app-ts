@@ -37,11 +37,12 @@ const ResetPasswordForm: React.FC = () => {
       }
 
       const { error } = await supabase.auth.updateUser({
-        email: data.email,
+        email: data.email.trim(),
         password: data.password,
       });
 
       if (error) {
+        console.error("reset password", error);
         toast.error(error.message);
         return;
       }

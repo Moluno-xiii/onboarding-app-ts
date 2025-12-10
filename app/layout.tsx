@@ -5,9 +5,11 @@ import {
   Raleway,
   Inter,
   Macondo_Swash_Caps,
-  Quantico
+  Quantico,
 } from "next/font/google";
 import "./globals.css";
+import AuthProvider from "@/contexts/Authcontext";
+import { Toaster } from "react-hot-toast";
 
 // Configure the font
 const raleway = Raleway({
@@ -16,6 +18,12 @@ const raleway = Raleway({
   style: ["normal", "italic"], // optional
   display: "swap",
 });
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -53,9 +61,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${raleway.variable} flex min-h-dvh ${geistMono.variable} ${inter.variable} ${quantico.variable} ${macondoSwash.variable} antialiased`}
+        className={`${geistSans.variable} ${raleway.className} flex min-h-dvh ${geistMono.variable} ${inter.variable} ${quantico.variable} ${macondoSwash.variable} antialiased`}
       >
-        {children}
+        <Toaster />
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
