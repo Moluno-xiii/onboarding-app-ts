@@ -11,7 +11,7 @@ export default function ContactSection({}: ContactSectionProps) {
     <footer className="font-tay-bea bg-text mt-8 flex min-h-[600px] w-full items-center justify-center overflow-x-hidden rounded-t-[3rem]">
       <div className="bg-text relative container mx-auto w-full rounded-3xl">
         {/* Decorative Background Elements positioned relative to the container */}
-        <div className="relative z-10 px-4 py-20 text-center sm:px-8 sm:py-24 lg:py-30">
+        <div className="relative z-10 px-4 py-20 text-center sm:px-8 sm:py-16 lg:py-20">
           <div className="font-marker relative mx-auto flex max-w-4xl flex-col items-center justify-center leading-none tracking-tight text-white md:flex-row md:flex-wrap md:items-baseline md:gap-4">
             <div className="relative z-10">
               {/* Purple dashes decoration */}
@@ -91,7 +91,7 @@ export default function ContactSection({}: ContactSectionProps) {
               href={"/dashboard"}
               className="group font-raleway relative inline-block text-lg font-medium tracking-wide text-white transition-colors hover:text-[#FFD24D] sm:text-xl md:text-2xl"
             >
-              GET START
+              GET STARTED
               {/* Simple underline animation */}
               <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-[#FFD24D] transition-all duration-300 group-hover:w-full"></span>
             </Link>

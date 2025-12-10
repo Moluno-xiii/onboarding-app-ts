@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="w-full py-10" style={{ zIndex: 12 }}>
+    <div className="w-full py-10 z-12">
       {/* Hero */}
       <section className="mb-10 min-h-100 items-center justify-center gap-6 rounded-xl lg:py-6">
         <div className="justify-center sm:flex sm:flex-row">
