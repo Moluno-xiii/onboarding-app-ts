@@ -1,5 +1,5 @@
-import React from 'react'
-import { YellowSquiggle } from './Shapes';
+import Image from "next/image";
+import { YellowSquiggle } from "./Shapes";
 
 export default function GuideNote2() {
   return (
@@ -18,7 +18,14 @@ export default function GuideNote2() {
 
         {/* Floating Triangle Top Right */}
         <div className="absolute -top-12 -right-4 -z-10 h-24 w-24 rotate-12 sm:-top-10 sm:left-[70%] md:left-[80%] md:h-32 md:w-32">
-          <img src="/yellow-chip.gif" alt="Connect illustration" />
+          <Image
+            src="/yellow-chip.gif"
+            alt="Connect illustration"
+            className="h-20 w-20 md:size-32"
+            width={50}
+            height={50}
+            unoptimized
+          />
         </div>
       </div>
 
@@ -27,10 +34,13 @@ export default function GuideNote2() {
         <div className="relative flex flex-row items-center">
           <h2 className="translate-x-2 -rotate-2 transform">through</h2>
           <div className="absolute -top-3/5 -left-1/2 -z-10 h-8 w-24 translate-x-1/4 md:-top-6 md:h-10 md:w-32 lg:top-0 lg:translate-x-1/3">
-            <img
+            <Image
               src="/red-polygon.gif"
               alt="Connect illustration"
               className="h-20 w-20 md:size-32"
+              width={50}
+              height={50}
+              unoptimized
             />
           </div>
         </div>
@@ -42,12 +52,26 @@ export default function GuideNote2() {
 
         {/* Triangle Bottom Left */}
         <div className="absolute top-1/2 left-4 -z-10 h-16 w-16 rotate-145 sm:top-0 sm:left-20 md:h-20 md:w-20 lg:h-36 lg:w-36">
-          <img src="/yellow-chip.gif" alt="Connect illustration" />
+          <Image
+            src="/yellow-chip.gif"
+            alt="Connect illustration"
+            className="h-20 w-20 md:size-32"
+            width={50}
+            height={50}
+            unoptimized
+          />
         </div>
 
         {/* Triangle Bottom Right */}
         <div className="absolute top-full right-4 h-24 w-26 rotate-82 sm:top-4 sm:right-4 md:h-20 md:w-20 lg:h-36 lg:w-36">
-          <img src="/yellow-chip.gif" alt="Connect illustration" />
+          <Image
+            src="/yellow-chip.gif"
+            alt="Connect illustration"
+            className="h-20 w-20 md:size-32"
+            width={50}
+            height={50}
+            unoptimized
+          />
         </div>
       </div>
     </div>

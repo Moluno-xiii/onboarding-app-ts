@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type CardProps = {
   title: React.ReactNode;
   description: string;
@@ -17,10 +19,13 @@ const Card: React.FC<CardProps> = ({
       style={{ border: `4px solid ${borderColor}` }}
     >
       <div className="mb-8 flex h-40 w-40 items-center justify-center">
-        <img
+        <Image
           src={icon}
           alt="Card icon"
           className="h-full w-full object-contain"
+          width={100}
+          height={100}
+          unoptimized
         />
       </div>
 

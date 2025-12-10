@@ -55,7 +55,7 @@ export default function CardsSection() {
     () => {
       const cards = gsap.utils.toArray<HTMLElement>(".card");
       const total = cards.length;
-      const scrollDistance = 600; // distance per card
+      const scrollDistance = 200; // distance per card
 
       // Set initial positions - stack cards with slight offset
       cards.forEach((card, i) => {
@@ -68,7 +68,7 @@ export default function CardsSection() {
 
         // Animate each card leaving upward sequentially
         gsap.to(card, {
-          y: initialY - window.innerHeight - 200, // move upward beyond view from its initial position
+          y: initialY - window.innerHeight, // move upward beyond view from its initial position
 
           ease: "power2.inOut",
           scrollTrigger: {
@@ -84,9 +84,10 @@ export default function CardsSection() {
       ScrollTrigger.create({
         trigger: mainRef.current,
         start: "top top",
-        end: `+=${total * scrollDistance}`,
+        end: `+=${(total - 1.6) * scrollDistance}`,
         pin: true,
         scrub: true,
+        anticipatePin: 1,
       });
     },
     { scope: mainRef },
@@ -150,7 +151,10 @@ export default function CardsSection() {
     >
       <div className="mx-auto max-w-7xl text-center">
         {/* Carousel (small→md) */}
-        <div className="mt-8 flex items-center justify-center gap-3 lg:hidden">
+        <p className="font-tay-bea text-light-black top-10 mb-4 block text-center text-sm font-bold tracking-widest uppercase lg:hidden">
+          Features
+        </p>
+        <div className="my-8 flex items-center justify-center gap-3 lg:hidden">
           <div
             ref={scrollRef}
             className="no-scrollbar mx-auto flex w-full max-w-4xl snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth"
@@ -207,7 +211,12 @@ export default function CardsSection() {
         </div>
 
         {/* Grid / wrapped layout for lg+ */}
+
         <div className="hidden h-screen lg:mt-12 lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-6">
+          <p className="font-tay-bea text-light-black absolute top-10 mb-4 block text-center text-sm font-bold tracking-widest uppercase">
+            Features
+          </p>
+
           {CARDS.map((c, i) => (
             <div
               key={i}
