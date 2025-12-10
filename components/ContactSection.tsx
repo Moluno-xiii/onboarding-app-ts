@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { YellowSquiggle } from "./Shapes";
 
 interface ContactSectionProps {
@@ -43,7 +44,7 @@ export default function ContactSection({
               </div>
 
               <span className="block origin-bottom-left rotate-2 transform text-[60px] drop-shadow-2xl sm:text-[90px] md:text-[120px]">
-                CONNECT?
+                TRY OUT?
               </span>
             </div>
           </div>
@@ -63,14 +64,14 @@ export default function ContactSection({
               />
             </div>
 
-            <a
-              href={`mailto:${email}`}
-              className="group relative inline-block font-raleway text-lg font-medium tracking-wide text-white transition-colors hover:text-[#FFD24D] sm:text-xl md:text-2xl"
+            <Link
+              href={"/dashboard"}
+              className="group font-raleway relative inline-block text-lg font-medium tracking-wide text-white transition-colors hover:text-[#FFD24D] sm:text-xl md:text-2xl"
             >
-              {email}
+              GET START
               {/* Simple underline animation */}
               <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-[#FFD24D] transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
