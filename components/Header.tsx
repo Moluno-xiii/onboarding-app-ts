@@ -1,5 +1,10 @@
 "use client";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -15,6 +20,27 @@ const NAV = [
 export const Header: React.FC = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const headerRef = useRef(null);
+
+  useGSAP(() => {
+    const h = gsap.to(headerRef.current, {
+      y: -100, 
+      duration: 0.3,
+      paused: true,
+    });
+
+   ScrollTrigger.create({
+     start: "top top",
+     onUpdate: (self) => {
+       if (self.direction === 1) {
+         h.play(); // scrolling down → hide header
+       } else {
+         h.reverse(); // scrolling up → show header
+       }
+     },
+   });
+
+  });
 
   const linkClass = (href: string) =>
     `px-3 py-2 rounded-md text-sm font-medium ${
@@ -24,7 +50,10 @@ export const Header: React.FC = () => {
     }`;
 
   return (
-    <header className="bg-background/80 sticky top-0 z-50 border-b border-gray-200 backdrop-blur-sm">
+    <header
+      ref={headerRef}
+      className="bg-background/80 sticky top-0 z-50 border-b border-gray-200 backdrop-blur-sm"
+    >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2">
