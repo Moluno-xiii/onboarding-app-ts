@@ -22,7 +22,7 @@ const ForgotPasswordForm: React.FC = () => {
       }
 
       const { error } = await supabase.auth.resetPasswordForEmail(data.email, {
-        redirectTo: "https://datavista-seven.vercel.app/reset-password",
+        redirectTo: "https://onboarding-app-ts.vercel.app/reset-password",
       });
 
       if (error) {

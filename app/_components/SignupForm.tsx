@@ -2,13 +2,19 @@
 
 import { useAuth } from "@/contexts/Authcontext";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import FormItem from "./FormItem";
 import Button from "./ui/Button";
+import { useRouter } from "next/navigation";
 
 const SignupForm = () => {
   const [error, setError] = useState<string | null>("");
-  const { signup, isLoading } = useAuth();
+  const { signup, isLoading, user } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user) router.push("/dashboard");
+  }, [user, router]);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
