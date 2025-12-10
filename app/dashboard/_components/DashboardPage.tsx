@@ -326,7 +326,7 @@ export default function ToursPage() {
   };
 
   return (
-    <div className="flex min-h-screen overflow-hidden text-white">
+    <div className="flex min-h-screen overflow-x-hidden text-white">
       <main className="h-screen flex-1 overflow-y-auto p-6 lg:p-10">
         <div className="mx-auto max-w-6xl space-y-8">
 
