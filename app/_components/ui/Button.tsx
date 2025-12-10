@@ -12,7 +12,7 @@ const modifiedStyles: Record<
   string
 > = {
   default:
-    "bg-primary hover:bg-primary/70 py-2 md:py-[15px] border-none text-white",
+    "bg-yellow hover:bg-light-black py-2 md:py-[15px] border-none text-white",
   transparent:
     "bg-transparent hover:text-white py-2 md:py-[15px] border hover:bg-darker border-darker  text-darker",
   link: "bg-transparent hover:text-primary text-darker border-none",
