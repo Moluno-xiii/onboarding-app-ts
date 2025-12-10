@@ -8,7 +8,7 @@ interface ContactSectionProps {
 export default function ContactSection({
 }: ContactSectionProps) {
   return (
-    <footer className="font-tay-bea flex min-h-[600px] w-full items-center justify-center overflow-hidden bg-text">
+    <footer className="font-tay-bea flex min-h-[600px] w-full items-center justify-center overflow-hidden bg-text rounded-t-[3rem]">
       <div className="relative container mx-auto w-full rounded-3xl bg-text">
         {/* Decorative Background Elements positioned relative to the container */}
         <div className="relative z-10 px-4 py-20 text-center sm:px-8 sm:py-24 lg:py-30">
