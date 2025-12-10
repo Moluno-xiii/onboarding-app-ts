@@ -124,7 +124,7 @@ const InstallGuide: React.FC = () => {
 
         <Link
           href="/"
-          className="bg-yellow shadow-primary/30 hover:bg-light-black flex w-full items-center justify-center gap-2 rounded-xl py-4 text-base font-bold text-white shadow-lg transition-transform active:scale-95"
+          className="bg-primary shadow-primary/30 hover:bg-primary-dark flex w-full items-center justify-center gap-2 rounded-xl py-4 text-base font-bold text-white shadow-lg transition-transform active:scale-95"
         >
           <MdPlayCircle className="text-xl" />
           View a Live Demo
