@@ -71,7 +71,7 @@ const AboutPage: React.FC = () => {
         <div className="mb-6">
           <Link
             href="/signup"
-            className="bg-yellow hover:bg-light-black mx-auto flex w-full max-w-md items-center justify-center rounded-xl px-6 py-4 text-base font-bold text-white transition-colors"
+            className="bg-primary hover:bg-primary/90 mx-auto flex w-full max-w-md items-center justify-center rounded-xl px-6 py-4 text-base font-bold text-white transition-colors"
           >
             Get Started
           </Link>
