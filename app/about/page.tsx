@@ -16,7 +16,7 @@ const AboutPage: React.FC = () => {
 
       <main className="mx-auto w-full flex-1 px-6 py-6">
         {/* Title & subtitle */}
-        <h1 className="mb-2 text-3xl leading-tight font-bold text-gray-900">
+        <h1 className="mb-2 text-3xl leading-tight font-tay-bea text-gray-900">
           Effortless Onboarding for Your Users
         </h1>
         <p className="mb-6 text-base text-gray-700">
@@ -30,7 +30,7 @@ const AboutPage: React.FC = () => {
           <div className={cardClass}>
             <MdOutlineWidgets className="text-purple text-3xl" />
             <div className="flex flex-col gap-1">
-              <h2 className="text-base font-bold text-gray-900">What We Do</h2>
+              <h2 className="text-base font-tay-bea text-gray-900">What We Do</h2>
               <p className="text-sm text-gray-600">
                 We provide an embeddable tool for creating intuitive user tours
                 and guides.
@@ -41,7 +41,7 @@ const AboutPage: React.FC = () => {
           <div className={cardClass}>
             <MdOutlineEmojiObjects className="text-purple text-3xl" />
             <div className="flex flex-col gap-1">
-              <h2 className="text-base font-bold text-gray-900">Our Mission</h2>
+              <h2 className="text-base font-tay-bea text-gray-900">Our Mission</h2>
               <p className="text-sm text-gray-600">
                 To empower developers to create exceptional user experiences.
               </p>
@@ -51,7 +51,7 @@ const AboutPage: React.FC = () => {
 
         {/* Key benefits */}
         <section className="bg-background mb-6 rounded-xl border border-gray-200 p-5">
-          <h3 className="mb-4 text-xl font-bold text-gray-900">Key Benefits</h3>
+          <h3 className="mb-4 text-xl font-tay-bea text-gray-900">Key Benefits</h3>
 
           <ul className="space-y-3">
             {benefits.map((benefit, idx) => {

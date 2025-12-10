@@ -49,7 +49,7 @@ const InstallGuide: React.FC = () => {
       <Header />
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-8">
-        <h2 className="mb-3 text-3xl leading-tight font-bold text-gray-900">
+        <h2 className="mb-3 text-3xl leading-tight font-tay-bea text-gray-900">
           Installation Guide — Embed Your Tour
         </h2>
         <p className="mb-6 text-base leading-relaxed text-gray-600">
@@ -57,7 +57,7 @@ const InstallGuide: React.FC = () => {
           into your website in minutes.
         </p>
 
-        <h3 className="mb-3 pt-5 text-xl font-bold text-gray-900">
+        <h3 className="mb-3 pt-5 text-xl font-tay-bea text-gray-900">
           Prerequisites
         </h3>
 
@@ -81,7 +81,7 @@ const InstallGuide: React.FC = () => {
           </div>
         </div>
 
-        <h3 className="mb-3 pt-8 text-xl font-bold text-gray-900">
+        <h3 className="mb-3 pt-8 text-xl font-tay-bea text-gray-900">
           1. Add the Script Tag
         </h3>
         <p className="mb-4 text-gray-600">
@@ -95,7 +95,7 @@ const InstallGuide: React.FC = () => {
           onCopy={() => safeCopy(scriptTag, setCopied1)}
         />
 
-        <h3 className="mb-3 pt-8 text-lg font-bold text-gray-900">
+        <h3 className="mb-3 pt-8 text-lg font-tay-bea text-gray-900">
           2. Initialize the Tour
         </h3>
         <p className="mb-4 text-gray-600">
@@ -116,16 +116,16 @@ const InstallGuide: React.FC = () => {
           </p>
         </div>
 
-        <h3 className="mt-10 mb-3 text-lg font-bold text-gray-900">
+        <h3 className="mt-10 mb-3 text-lg font-tay-bea text-gray-900">
           Need Help?
         </h3>
-        <p className="mb-6 text-gray-600">
+        <p className="mb-6 text-gray-600 ">
           Check out our live demo or contat our support team.
         </p>
 
         <Link
           href="/"
-          className="bg-yellow shadow-primary/30 hover:bg-light-black flex w-full items-center justify-center gap-2 rounded-xl py-4 text-base font-bold text-white shadow-lg transition-transform active:scale-95"
+          className="bg-yellow mb-10 shadow-primary/30 hover:bg-light-black flex w-full items-center justify-center gap-2 rounded-xl py-4 text-base font-tay-bea text-white shadow-lg transition-transform active:scale-95"
         >
           <MdPlayCircle className="text-xl" />
           View a Live Demo
