@@ -322,7 +322,7 @@ export default function ToursPage() {
     <div className="flex min-h-screen overflow-x-hidden text-white">
       <main className="h-screen flex-1 overflow-y-auto p-6 lg:p-10">
         <div className="mx-auto max-w-6xl space-y-8">
-          {/* Header */}
+          
           <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
             <div>
               <h2 className="bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-3xl font-bold text-transparent lg:text-5xl">
