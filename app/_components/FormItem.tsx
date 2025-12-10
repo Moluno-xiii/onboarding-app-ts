@@ -14,7 +14,7 @@ const FormItem = ({ error, name, label, type = "text", ...rest }: Props) => {
         <label htmlFor={name}>{label}</label>
         <span className="text-sm text-red-600">{error}</span>
       </div>
-      <input type={type} name={name} className="input" {...rest} />
+      <input type={type} name={name} className="input border border-light-black outline-light-black" {...rest} />
     </div>
   );
 };

@@ -1,9 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import { MdOutlineEmojiObjects, MdOutlineWidgets } from "react-icons/md";
 import { benefits } from "@/data";
 import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 
 const cardClass =
