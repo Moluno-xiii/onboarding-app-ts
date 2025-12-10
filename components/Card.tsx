@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div
-      className="bg-card relative flex h-100 w-full flex-col items-center justify-between rounded-[2.5rem] p-8 shadow-sm transition-transform hover:scale-105 md:max-w-sm"
+      className="bg-card relative flex h-100 w-full flex-col items-center justify-between rounded-[2.5rem] p-8 shadow-sm transition-transform hover:scale-105 md:max-w-sm md:h-full"
       style={{ border: `4px solid ${borderColor}` }}
     >
       <div className="mb-8 flex h-40 w-40 items-center justify-center">

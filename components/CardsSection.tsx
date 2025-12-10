@@ -162,7 +162,7 @@ const goToPrev = () => {
         </div>
 
         {/* Grid / wrapped layout for lg+ */}
-        <div className="hidden lg:mt-12 lg:flex lg:flex-wrap lg:justify-center lg:gap-6">
+        <div className="hidden lg:mt-12 lg:flex lg:flex-wrap items-center justify-center lg:gap-6">
           {CARDS.map((c, i) => (
             <Card
               key={i}
