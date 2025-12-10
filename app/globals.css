@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-} */
 @font-face {
   font-family: Tay Bea;
   src: url("https://cdn.prod.website-files.com/67079a31e71560a787d9fcc4/67079b35ca1818ca1f47d47a_TAYBea.otf")
@@ -12,14 +8,6 @@
   font-style: normal;
   font-display: swap;
 }
-
-/* @font-face {
-  font-family: Raleway;
-  src: url('/components/font/Raleway-Regular.ttf') format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-} */
 
 @theme inline {
   --color-background: var(--background);
@@ -34,8 +22,7 @@
   --color-light: #f7f7f7;
   /* --color-primary: #314158; */
   --color-darker: #333333;
-  
-  --color-yellow: #f0b420 ;
+  --color-yellow: #f0b420;
   --color-black: #1e1e1e;
   --color-purple: #b0a5f4;
   --color-light-brown-gray: #f2e8dc;
@@ -56,20 +43,11 @@
   .input {
     @apply border-primary/50 focus:outline-primary placeholder:text-darker/30 min-w-2xs rounded-lg border px-5 py-4 transition-all duration-200 focus:outline-2 md:w-md md:focus:scale-105 lg:w-lg;
   }
-
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #f9f2e9;
-    --foreground: #ededed;
-  }
-} */
 
 body {
   background: #f9f2e9;
   color: var(--foreground);
-  /* font-family: Raleway, sans-serif; */
 }
 
 .loader {

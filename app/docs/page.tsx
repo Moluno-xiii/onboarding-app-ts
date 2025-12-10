@@ -44,7 +44,7 @@ const InstallGuide: React.FC = () => {
 </script>`;
 
   return (
-    <div className="bg-background-light flex min-h-screen flex-col overflow-x-hidden">
+    <div className="bg-background-light flex min-h-screen w-full flex-col overflow-x-hidden">
       <Header />
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-8">
@@ -75,7 +75,7 @@ const InstallGuide: React.FC = () => {
               <MdArticle className="text-xl" />
             </div>
             <p className="flex-1 truncate font-medium text-gray-800">
-              Access to your website's HTML
+              Access to your website&apos;s HTML
             </p>
           </div>
         </div>

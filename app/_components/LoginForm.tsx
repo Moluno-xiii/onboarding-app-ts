@@ -1,28 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { FormEvent, useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
 import FormItem from "./FormItem";
 import Button from "./ui/Button";
 import { login } from "../utils/actions";
+import { useAuth } from "@/contexts/Authcontext";
 
 const LoginForm = () => {
-  const [state, formAction] = useActionState(login, {
-    error: { email: null, password: null },
-    success: false,
-  });
+  const [error, setError] = useState<string | null>("");
+  const { login, isLoading } = useAuth();
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData) as {
+      email: string;
+      password: string;
+    };
+    console.log("login data", data);
+    login({
+      userEmail: data.email.trim(),
+      userPassword: data.password,
+      setErrorCb: setError,
+    });
+  };
   return (
-    <form action={formAction} className="flex flex-col gap-y-5">
-      <FormItem error={state.error.email} label="Email" name="email" required />
+    <form onSubmit={onSubmit} className="flex flex-col gap-y-5">
+      <FormItem error={null} label="Email" name="email" required />
       <FormItem
-        error={state.error.password}
+        error={null}
         label="Password"
         name="password"
         required
         type="password"
         minLength={8}
       />
+      <span className="text-center text-sm text-red-600">{error}</span>
       <section
         aria-labelledby="forgot password section"
         className="flex flex-col justify-between gap-y-2 md:flex-row"
@@ -43,22 +58,14 @@ const LoginForm = () => {
           Forgot password?
         </Link>{" "}
       </section>
-      <SubmitButton />
+      <Button
+        disabled={isLoading}
+        type="submit"
+        text={isLoading ? "Signing up..." : "Signup"}
+        additionalStyles="self-center"
+      />{" "}
     </form>
   );
 };
 
 export default LoginForm;
-
-const SubmitButton = () => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      disabled={pending}
-      type="submit"
-      text={pending ? "Logging in..." : "Login"}
-      additionalStyles="self-center"
-    />
-  );
-};
