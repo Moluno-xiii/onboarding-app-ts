@@ -20,7 +20,7 @@ const AboutPage: React.FC = () => {
       <main className="mx-auto w-full flex-1 px-6 py-6">
         {/* Hero / Banner */}
         <div className="relative mb-6 min-h-[218px] overflow-hidden rounded-xl">
-          <div className="from-primary absolute inset-0 bg-linear-to-br via-purple-500 to-blue-500 opacity-80" />
+          <div className="bg-yellow absolute inset-0 bg-linear-to-br  opacity-80" />
           <div className="absolute inset-0 flex items-center justify-center">
             <MdOutlineHub className="text-8xl text-white opacity-30" />
           </div>
@@ -83,7 +83,7 @@ const AboutPage: React.FC = () => {
         <div className="mb-6">
           <Link
             href="/signup"
-            className="bg-primary hover:bg-primary/90 mx-auto flex w-full max-w-md items-center justify-center rounded-xl px-6 py-4 text-base font-bold text-white transition-colors"
+            className="bg-yellow hover:bg-light-black mx-auto flex w-full max-w-md items-center justify-center rounded-xl px-6 py-4 text-base font-bold text-white transition-colors"
           >
             Get Started
           </Link>
