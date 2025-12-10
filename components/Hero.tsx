@@ -1,12 +1,11 @@
 import Link from "next/link";
-import React from "react";
 import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="w-full py-10">
+    <div className="w-full py-10" style={{ zIndex: 12 }}>
       {/* Hero */}
-      <section className="mb-10 min-h-100 items-center justify-center gap-6 overflow-hidden rounded-xl lg:py-6">
+      <section className="mb-10 min-h-100 items-center justify-center gap-6 rounded-xl lg:py-6">
         <div className="justify-center sm:flex sm:flex-row">
           <div className="relative mt-3 -mb-10 flex flex-col text-5xl max-sm:justify-center max-sm:text-center sm:order-2 sm:text-6xl lg:flex lg:text-8xl">
             <div className="mx-auto flex justify-center max-sm:translate-y-7 max-sm:-rotate-10 sm:-translate-x-30">
@@ -71,9 +70,9 @@ export default function Hero() {
           />
         </div>
 
-        <div className="items-center justify-center text-center sm:order-3 sm:hidden lg:-ml-10">
+        <div className="items-center justify-center  text-center sm:order-3 sm:hidden lg:-ml-10">
           <h1 className="text-4xl leading-tight font-black tracking-[-0.033em] @[30rem]:text-5xl"></h1>
-          <h2 className="mx-auto max-w-md text-center text-base leading-normal font-semibold">
+          <h2 className="mx-auto px-3 max-w-md text-center text-base leading-normal font-semibold">
             Guide your users with interactive tours and tooltips, embedded in
             minutes.
           </h2>
@@ -93,76 +92,6 @@ export default function Hero() {
           </div>
         </div>
       </section>
-      {/* Feature Section */}
-      {/* <section className="mb-12 flex flex-col gap-6">
-        <div className="flex flex-col gap-4">
-          <h2 className="max-w-180 text-3xl leading-tight font-bold text-gray-900 @[30rem]:text-4xl">
-            Everything you need to create the perfect onboarding experience.
-          </h2>
-          <p className="max-w-180 text-base text-gray-600">
-            Powerful features designed for simplicity and scale.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {features.map((feature, idx) => {
-            const Icon = feature.icon;
-            return (
-              <div key={idx} className={cardClass}>
-                <Icon className="text-primary text-3xl" />
-                <div className="flex flex-col gap-2">
-                  <h3 className="text-lg font-bold text-gray-900">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600">{feature.desc}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section> */}
-      {/* How it Works */}
-      {/* <section className="mb-12 rounded-xl bg-white px-6 py-10">
-        <h3 className="mb-8 text-center text-xl font-bold text-gray-900">
-          How it Works
-        </h3>
-
-        <div className="mx-auto flex max-w-2xl flex-col gap-8">
-          {steps.map((item, idx) => (
-            <div key={idx} className="flex items-start gap-4">
-              <div className="bg-primary/20 text-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-bold">
-                {item.step}
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <h4 className="text-lg font-bold text-gray-900">
-                  {item.title}
-                </h4>
-                <p className="text-gray-600">{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section> */}
-      {/* Final CTA */}
-      {/* <section className="mb-12">
-        <div className="bg-primary shadow-primary/20 flex flex-col items-center gap-6 rounded-xl p-8 text-center text-white shadow-lg">
-          <h3 className="text-2xl font-bold">
-            Ready to improve your user experience?
-          </h3>
-          <p className="text-white/80">
-            Start building better onboarding flows today. No credit card
-            required.
-          </p>
-
-          <Link
-            href="/auth"
-            className="text-primary w-full max-w-sm rounded-lg bg-white px-5 py-3 text-center font-bold transition-colors hover:bg-gray-100"
-          >
-            Get Started for Free
-          </Link>
-        </div>
-      </section> */}
     </div>
   );
 }

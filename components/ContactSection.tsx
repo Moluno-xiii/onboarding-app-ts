@@ -1,22 +1,29 @@
 import Link from "next/link";
 import { YellowSquiggle } from "./Shapes";
+import Image from "next/image";
 
 interface ContactSectionProps {
   email?: string;
 }
 
-export default function ContactSection({
-}: ContactSectionProps) {
+export default function ContactSection({}: ContactSectionProps) {
   return (
-    <footer className="font-tay-bea flex min-h-[600px] w-full items-center justify-center overflow-hidden bg-text rounded-t-[3rem]">
-      <div className="relative container mx-auto w-full rounded-3xl bg-text">
+    <footer className="font-tay-bea bg-text mt-8 flex min-h-[600px] w-full items-center justify-center overflow-x-hidden rounded-t-[3rem]">
+      <div className="bg-text relative container mx-auto w-full rounded-3xl">
         {/* Decorative Background Elements positioned relative to the container */}
         <div className="relative z-10 px-4 py-20 text-center sm:px-8 sm:py-24 lg:py-30">
           <div className="font-marker relative mx-auto flex max-w-4xl flex-col items-center justify-center leading-none tracking-tight text-white md:flex-row md:flex-wrap md:items-baseline md:gap-4">
             <div className="relative z-10">
               {/* Purple dashes decoration */}
               <div className="absolute -top-4 -left-16 h-20 w-20 -rotate-12 opacity-90 md:-top-2 md:-left-20 md:h-24 md:w-24">
-                <img src="/purple-lines.gif" alt="red chip illustration" />
+                <Image
+                  src="/purple-lines.gif"
+                  alt="red chip illustration"
+                  className="h-20 w-20 md:size-32"
+                  width={50}
+                  height={50}
+                  unoptimized
+                />
               </div>
 
               <span className="block origin-bottom-right -rotate-6 transform text-[60px] drop-shadow-2xl sm:text-[90px] md:text-[120px]">
@@ -39,7 +46,14 @@ export default function ContactSection({
             <div className="relative z-10">
               {/* Top Right Red Chip */}
               <div className="absolute -top-16 -right-8 h-20 w-20 rotate-12 opacity-90 md:-top-24 md:-right-16 md:h-32 md:w-32">
-                <img src="/red-chip-bottom.gif" alt="red chip illustration" />
+                <Image
+                  src="/red-chip-bottom.gif"
+                  alt="red chip illustration"
+                  className="h-20 w-20 md:size-32"
+                  width={50}
+                  height={50}
+                  unoptimized
+                />
               </div>
 
               <span className="block origin-bottom-left rotate-2 transform text-[60px] drop-shadow-2xl sm:text-[90px] md:text-[120px]">
@@ -50,16 +64,26 @@ export default function ContactSection({
 
           {/* Bottom Left Red Chip (Floating below text) */}
           <div className="absolute bottom-1/4 left-4 h-24 w-24 -rotate-200 opacity-90 md:left-20 md:h-32 md:w-32 lg:left-32">
-            <img src="/red-chip-bottom.gif" alt="red chip illustration" />
+            <Image
+              src="/red-chip-bottom.gif"
+              alt="red chip illustration"
+              className="h-20 w-20 md:size-32"
+              width={50}
+              height={50}
+              unoptimized
+            />
           </div>
 
           {/* Connect Arrow & Email */}
           <div className="mt-16 flex flex-col items-center justify-center space-y-4">
             <div className="h-16 w-8 animate-bounce md:h-24 md:w-12">
-              <img
+              <Image
                 src="/connect.svg"
                 alt="Connect illustration"
                 className="h-full w-full"
+                width={50}
+                height={50}
+                unoptimized
               />
             </div>
 

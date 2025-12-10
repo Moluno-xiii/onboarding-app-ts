@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function HowItWorksSection() {
   const features = [
     {
@@ -35,7 +37,7 @@ export default function HowItWorksSection() {
   ];
 
   return (
-    <section className="bg-text relative w-full overflow-hidden px-6 py-24 rounded-[3rem]">
+    <section className="bg-text relative w-full overflow-x-hidden rounded-[3rem] px-6 py-24">
       {/* -- HEADER -- */}
       <div className="relative mx-auto mb-12 max-w-6xl text-center">
         <span className="font-raleway mb-4 block text-sm font-bold tracking-widest text-gray-400 uppercase">
@@ -46,14 +48,27 @@ export default function HowItWorksSection() {
           <div className="relative z-10">
             <div className="font-tay-bea text-5xl leading-[0.9] uppercase sm:text-6xl lg:text-8xl">
               <div className="flex items-center justify-center">
-                <img src="/red-star.gif" alt="" className="h-18 w-18 sm:size-32" />
+                <Image
+                  src="/red-star.gif"
+                  alt=""
+                  className="h-18 w-18 sm:size-32"
+                  width={50}
+                  height={50}
+                  unoptimized
+                />
 
                 <h2 className="rotate-2">Guidance</h2>
-                <img src="/purple-triangles.gif" alt="" className="h-18 w-18 sm:size-32" />
+                <Image
+                  src="/purple-triangles.gif"
+                  alt=""
+                  className="h-18 w-18 sm:size-32"
+                  width={50}
+                  height={50}
+                  unoptimized
+                />
               </div>
               <h2 className="-rotate-2"> that works</h2>
             </div>
-
           </div>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-zinc-300 sm:text-xl">
             Guide users through key flows with interactive tours, tooltips, and
@@ -79,18 +94,19 @@ export default function HowItWorksSection() {
             {/* Title */}
             <div className="mb-6">
               <h3 className="font-tay-bea text-2xl leading-none tracking-wide md:text-3xl">
-                  <span className="block">
-                    {feature.title}
-                  </span>
+                <span className="block">{feature.title}</span>
               </h3>
             </div>
 
             {/* Icon (your gifs/webp) */}
             <div className="mb-8 flex h-24 w-24 items-center justify-center sm:h-32 sm:w-32">
-              <img
+              <Image
                 src={feature.icon}
                 alt={`${feature.title} illustration`}
                 className="h-full w-full object-contain"
+                width={50}
+                height={50}
+                unoptimized
               />
             </div>
 

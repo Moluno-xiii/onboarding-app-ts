@@ -1,7 +1,11 @@
 "use client";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useRef, useState, useEffect } from "react";
 import Card from "./Card";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const CARDS = [
   {
@@ -45,6 +49,49 @@ export default function CardsSection() {
   const childrenRef = useRef<HTMLDivElement[]>([]);
   const [active, setActive] = useState(0);
   const rafRef = useRef<number | null>(null);
+  const mainRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const cards = gsap.utils.toArray<HTMLElement>(".card");
+      const total = cards.length;
+      const scrollDistance = 200; // distance per card
+
+      // Set initial positions - stack cards with slight offset
+      cards.forEach((card, i) => {
+        const initialY = i * 20; // stack offset
+
+        gsap.set(card, {
+          y: initialY,
+          opacity: 1,
+        });
+
+        // Animate each card leaving upward sequentially
+        gsap.to(card, {
+          y: initialY - window.innerHeight, // move upward beyond view from its initial position
+
+          ease: "power2.inOut",
+          scrollTrigger: {
+            trigger: mainRef.current,
+            start: `top+=${i * scrollDistance} top`,
+            end: `top+=${(i + 1) * scrollDistance} top`,
+            scrub: true,
+          },
+        });
+      });
+
+      // Pin the section for the entire animation duration
+      ScrollTrigger.create({
+        trigger: mainRef.current,
+        start: "top top",
+        end: `+=${(total - 1.6) * scrollDistance}`,
+        pin: true,
+        scrub: true,
+        anticipatePin: 1,
+      });
+    },
+    { scope: mainRef },
+  );
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -70,10 +117,8 @@ export default function CardsSection() {
     };
 
     el.addEventListener("scroll", onScroll, { passive: true });
-    // initial set
     onScroll();
 
-    // cleanup
     return () => {
       el.removeEventListener("scroll", onScroll);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -84,28 +129,32 @@ export default function CardsSection() {
     const el = scrollRef.current;
     const child = childrenRef.current[index];
     if (!el || !child) return;
-    // center the child in the container
     const left = child.offsetLeft - (el.clientWidth - child.clientWidth) / 2;
     el.scrollTo({ left, behavior: "smooth" });
     setActive(index);
   };
 
   const goToNext = () => {
-  const next = active + 1 >= CARDS.length ? 0 : active + 1;
-  scrollToIndex(next);
-};
+    const next = active + 1 >= CARDS.length ? 0 : active + 1;
+    scrollToIndex(next);
+  };
 
-const goToPrev = () => {
-  const prev = active - 1 < 0 ? CARDS.length - 1 : active - 1;
-  scrollToIndex(prev);
-};
-
+  const goToPrev = () => {
+    const prev = active - 1 < 0 ? CARDS.length - 1 : active - 1;
+    scrollToIndex(prev);
+  };
 
   return (
-    <section className="mt-30">
+    <section
+      className="relative mt-30 lg:h-screen lg:items-center lg:justify-center"
+      ref={mainRef}
+    >
       <div className="mx-auto max-w-7xl text-center">
         {/* Carousel (small→md) */}
-        <div className="mt-8 flex items-center justify-center gap-3 lg:hidden">
+        <p className="font-tay-bea text-light-black top-10 mb-4 block text-center text-sm font-bold tracking-widest uppercase lg:hidden">
+          Features
+        </p>
+        <div className="my-8 flex items-center justify-center gap-3 lg:hidden">
           <div
             ref={scrollRef}
             className="no-scrollbar mx-auto flex w-full max-w-4xl snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth"
@@ -162,15 +211,25 @@ const goToPrev = () => {
         </div>
 
         {/* Grid / wrapped layout for lg+ */}
-        <div className="hidden lg:mt-12 lg:flex lg:flex-wrap items-center justify-center lg:gap-6">
+
+        <div className="hidden h-screen lg:mt-12 lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-6">
+          <p className="font-tay-bea text-light-black absolute top-10 mb-4 block text-center text-sm font-bold tracking-widest uppercase">
+            Features
+          </p>
+
           {CARDS.map((c, i) => (
-            <Card
+            <div
               key={i}
-              title={c.title}
-              description={c.description}
-              icon={c.icon}
-              borderColor={c.borderColor}
-            />
+              className="card absolute"
+              style={{ zIndex: CARDS.length - i }}
+            >
+              <Card
+                title={c.title}
+                description={c.description}
+                icon={c.icon}
+                borderColor={c.borderColor}
+              />
+            </div>
           ))}
         </div>
       </div>
