@@ -18,13 +18,7 @@ const AboutPage: React.FC = () => {
       <Header />
 
       <main className="mx-auto w-full flex-1 px-6 py-6">
-        {/* Hero / Banner */}
-        <div className="relative mb-6 min-h-[218px] overflow-hidden rounded-xl">
-          <div className="bg-yellow absolute inset-0 bg-linear-to-br  opacity-80" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <MdOutlineHub className="text-8xl text-white opacity-30" />
-          </div>
-        </div>
+       
 
         {/* Title & subtitle */}
         <h1 className="mb-2 text-3xl leading-tight font-bold text-gray-900">
