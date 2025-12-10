@@ -334,9 +334,11 @@ export default function ToursPage() {
             </div>
             <div className="flex items-center space-x-4">
               <div className="rounded-lg border bg-black/80 px-8 py-3 text-lg">
-                <span className="text-yellow text-xl font-bold">
-                  {tours.length}
-                </span>
+                {tours.length > 0 && (
+                  <span className="text-yellow text-xl font-bold">
+                    {tours.length}
+                  </span>
+                )}
                 <span className="ml-2 text-gray-100">
                   {tours.length === 0
                     ? "No Tours"
