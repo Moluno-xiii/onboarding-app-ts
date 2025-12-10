@@ -60,6 +60,7 @@ export default function ToursPage() {
   const [editingStepId, setEditingStepId] = useState<string | null>(null);
   const [editingStepTitle, setEditingStepTitle] = useState("");
   const [editingStepContent, setEditingStepContent] = useState("");
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const init = async () => {
@@ -350,10 +351,11 @@ export default function ToursPage() {
 
               <div className="rounded-lg border bg-black/80 px-8 py-3 text-lg">
                 <span className="text-purple text-xl font-bold">
-                  {tours.reduce(
-                    (acc, tour) => acc + (tour.steps?.length ?? 0),
-                    0,
-                  )}
+                  {tours.length > 0 &&
+                    tours.reduce(
+                      (acc, tour) => acc + (tour.steps?.length ?? 0),
+                      0,
+                    )}
                 </span>
 
                 <span className="ml-2 text-gray-100">
@@ -478,13 +480,14 @@ export default function ToursPage() {
                       onClick={() => {
                         const embedCode = `<script data-id="${tour.id}" src="https://tours-embed-widget-vite.vercel.app/main.iife.js"></script>`;
                         navigator.clipboard.writeText(embedCode);
-                        alert("Embed code copied to clipboard!");
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 1500);
                       }}
                       aria-label="Edit tour"
                       title="Edit tour"
-                      className="bg-yellow/80 hover:bg-light-black/80 cursor-pointer rounded-lg border border-white/10 p-2 transition-colors duration-200 ease-in-out"
+                      className="md:w-40 bg-yellow/80 hover:bg-light-black/80 cursor-pointer rounded-lg border border-white/10 p-2 transition-colors duration-200 ease-in-out"
                     >
-                      Copy Embed Code
+                      {copied ? "Copied!" : "Copy Embed Code"}
                     </button>
                   </div>
                 </div>
@@ -570,7 +573,7 @@ export default function ToursPage() {
                     </label>
                     <input
                       placeholder="Enter step title"
-                      className="rounded bg-gray-800/50 p-2 text-white"
+                      className="rounded bg-bg-color p-2 text-gray-800"
                       value={newSteps[tour.id]?.title || ""}
                       onChange={(e) =>
                         handleStepInputChange(tour.id, "title", e.target.value)
@@ -585,7 +588,7 @@ export default function ToursPage() {
                     </label>
                     <input
                       placeholder="Enter step content"
-                      className="rounded bg-gray-800/50 p-2 text-white"
+                      className="rounded bg-bg-color p-2 text-gray-800"
                       value={newSteps[tour.id]?.content || ""}
                       onChange={(e) =>
                         handleStepInputChange(
