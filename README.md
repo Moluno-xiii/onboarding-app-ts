@@ -1,8 +1,9 @@
-FE and FEATURES
-Jutin dikonu --External Pages 
-Stephanie -- External Pages 
-Abdul.tsx(not a mentor) --- Embeddable Element
-Hillary_Elo -- Dashboard
+
+## FE and FEATURES
+* Jutin dikonu --External Pages 
+* Stephanie -- External Pages 
+* Abdul.tsx(not a mentor) --- Embeddable Element
+* Hillary_Elo -- Dashboard
 
 
 # 🎯 Onboarding Tour Widget
