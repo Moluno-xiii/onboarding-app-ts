@@ -70,9 +70,9 @@ export default function Hero() {
           />
         </div>
 
-        <div className="items-center justify-center text-center sm:order-3 sm:hidden lg:-ml-10">
+        <div className="items-center justify-center  text-center sm:order-3 sm:hidden lg:-ml-10">
           <h1 className="text-4xl leading-tight font-black tracking-[-0.033em] @[30rem]:text-5xl"></h1>
-          <h2 className="mx-auto max-w-md text-center text-base leading-normal font-semibold">
+          <h2 className="mx-auto px-3 max-w-md text-center text-base leading-normal font-semibold">
             Guide your users with interactive tours and tooltips, embedded in
             minutes.
           </h2>

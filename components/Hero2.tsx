@@ -29,7 +29,7 @@ export default function Hero2() {
       tl.to(".made", { opacity: 1, ease: "power2.out", duration: 0.5 });
       tl.to(".simple", { opacity: 1, ease: "power2.out", duration: 0.5 });
       tl.to(".us", { opacity: 1, ease: "power2.out", duration: 1.5 });
-      tl.from(".second", { yPercent: 100, ease: "none", duration: 6 });
+      tl.from(".second", { yPercent: 100, ease: "none", duration: 10 });
 
       tl.to(
         ".first",
@@ -42,7 +42,7 @@ export default function Hero2() {
         "-=0.1",
       );
 
-      tl.to(".second", { yPercent: -100, ease: "none", duration: 6 });
+      tl.to(".second", { yPercent: -100, ease: "none", duration: 10 });
     },
     { scope: mainRef },
   );
@@ -53,7 +53,7 @@ export default function Hero2() {
       className="hero2 relative flex h-screen flex-1 flex-col items-center justify-center"
     >
       <div className="font-tay-bea first flex h-screen flex-col items-center justify-center text-4xl sm:text-7xl lg:text-8xl">
-        <div style={{ opacity: 0 }} className="guide flex -rotate-12">
+        <div style={{ opacity: 0.4 }} className="guide flex -rotate-12">
           <Image
             src={
               "https://cdn.prod.website-files.com/67079a31e71560a787d9fcc4/671f8d4f416c08af9ec75729_Static-3-red.gif"
@@ -77,7 +77,7 @@ export default function Hero2() {
           />
         </div>
         <div
-          style={{ opacity: 0 }}
+          style={{ opacity: 0.4 }}
           className="made flex translate-x-1 rotate-3 gap-2"
         >
           <Image
@@ -92,10 +92,10 @@ export default function Hero2() {
           />
           <span>MADE</span>
         </div>
-        <div className="simple rotate-5" style={{ opacity: 0 }}>
+        <div className="simple rotate-5" style={{ opacity: 0.4 }}>
           SIMPLE WITH
         </div>
-        <div className="us -rotate-5 text-center" style={{ opacity: 0 }}>
+        <div className="us -rotate-5 text-center" style={{ opacity: 0.4 }}>
           US
         </div>
       </div>
