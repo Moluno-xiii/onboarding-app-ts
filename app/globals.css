@@ -50,6 +50,7 @@
 body {
   background: #f9f2e9;
   color: var(--foreground);
+ overflow-y: hidden;
 }
 
 .loader {
