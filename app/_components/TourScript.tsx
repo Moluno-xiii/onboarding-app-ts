@@ -1,7 +1,24 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 
-export const TourScript = ({ steps = [], onComplete }) => {
+type Placement = "top" | "bottom" | "left" | "right";
+
+export interface Step {
+  target: string;
+  title?: string;
+  content?: string;
+  placement?: Placement;
+}
+
+export interface TourScriptProps {
+  steps?: Step[];
+  onComplete?: () => void;
+}
+
+export const TourScript: React.FC<TourScriptProps> = ({
+  steps = [],
+  onComplete,
+}) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
@@ -11,7 +28,7 @@ export const TourScript = ({ steps = [], onComplete }) => {
     width: 0,
     height: 0,
   });
-  const tooltipRef = useRef(null);
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
 
   const updatePositions = useCallback(() => {
     const step = steps[currentStep];
@@ -126,7 +143,7 @@ export const TourScript = ({ steps = [], onComplete }) => {
   }, [onComplete]);
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (!isActive) return;
       if (e.key === "Escape") endTour();
       else if (e.key === "ArrowRight") nextStep();

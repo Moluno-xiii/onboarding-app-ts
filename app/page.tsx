@@ -6,7 +6,7 @@ import ContactSection from "@/components/ContactSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import Script from "next/script";
 import { useEffect } from "react";
-import { TourScript } from "./_components/TourScript";
+import { Step, TourScript } from "./_components/TourScript";
 
 const LandingPage: React.FC = () => {
   //   useEffect(() => {
@@ -20,7 +20,7 @@ const LandingPage: React.FC = () => {
   //   return () => s.remove();
   // }, []);
 
-  const tourSteps = [
+  const tourSteps: Step[] = [
     {
       target: "#guide",
       title: "👋 Welcome!",
