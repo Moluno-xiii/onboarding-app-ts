@@ -151,7 +151,7 @@ export default function CardsSection() {
     >
       <div className="mx-auto max-w-7xl text-center">
         {/* Carousel */}
-        <p className="font-tay-bea text-light-black top-10 mb-4 block text-center text-sm font-bold tracking-widest uppercase lg:hidden">
+        <p className="font-tay-bea text-light-black top-10 mb-4 block text-center text-2xl md:text-4xl lg:text-6xl font-bold tracking-widest uppercase lg:hidden">
           Features
         </p>
         <div className="my-8 flex items-center justify-center gap-3 lg:hidden">
@@ -213,7 +213,7 @@ export default function CardsSection() {
         {/* Grid / wrapped layout for lg+ */}
 
         <div className="hidden h-screen lg:mt-12 lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-6">
-          <p className="font-tay-bea text-light-black absolute top-10 mb-4 block text-center text-sm font-bold tracking-widest uppercase">
+          <p className="font-tay-bea text-light-black absolute top-10 mb-4 block text-center text-lg md:text-2xl lg:text-4xl font-bold tracking-widest uppercase">
             Features
           </p>
 

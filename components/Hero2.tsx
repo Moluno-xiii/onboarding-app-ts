@@ -50,6 +50,7 @@ export default function Hero2() {
   return (
     <div
       ref={mainRef}
+      id="hero-2"
       className="hero2 relative flex h-screen flex-1 flex-col items-center justify-center"
     >
       <div className="font-tay-bea first flex h-screen flex-col items-center justify-center text-4xl sm:text-7xl lg:text-8xl">

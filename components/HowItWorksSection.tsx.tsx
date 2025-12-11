@@ -46,7 +46,7 @@ export default function HowItWorksSection() {
 
         <div className="text-white">
           <div className="relative z-10">
-            <div className="font-tay-bea text-5xl leading-[0.9] uppercase sm:text-6xl lg:text-8xl">
+            <div id="how-it-works" className="font-tay-bea text-5xl leading-[0.9] uppercase sm:text-6xl lg:text-8xl">
               <div className="flex items-center justify-center">
                 <Image
                   src="/red-star.gif"
