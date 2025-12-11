@@ -364,15 +364,15 @@ export const TourScript: React.FC<TourScriptProps> = ({
                 fontSize: "14px",
                 fontWeight: 600,
                 cursor: "pointer",
-                background: "#3182ce",
+                background: "black",
                 color: "white",
                 transition: "background 0.12s",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#2c5282";
+                e.currentTarget.style.background = "black";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#3182ce";
+                e.currentTarget.style.background = "black";
               }}
             >
               {currentStep === steps.length - 1 ? "Finish ✓" : "Next"}
