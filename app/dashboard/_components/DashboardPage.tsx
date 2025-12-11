@@ -5,6 +5,7 @@ import { supabase } from "@/utils/supabaseClient";
 import { Plus, Edit2, Trash2 } from "lucide-react";
 import { User } from "@supabase/supabase-js";
 import { BiEditAlt } from "react-icons/bi";
+import withAuth from "@/utils/withAuth";
 
 interface TourStep {
   id: string;
@@ -41,7 +42,7 @@ interface SupabaseTourRow {
   steps?: SupabaseStepRow[];
 }
 
-export default function ToursPage() {
+function ToursPage() {
   const [tours, setTours] = useState<Tour[]>([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
@@ -485,7 +486,7 @@ export default function ToursPage() {
                       }}
                       aria-label="Edit tour"
                       title="Edit tour"
-                      className="md:w-40 bg-yellow/80 hover:bg-light-black/80 cursor-pointer rounded-lg border border-white/10 p-2 transition-colors duration-200 ease-in-out"
+                      className="bg-yellow/80 hover:bg-light-black/80 cursor-pointer rounded-lg border border-white/10 p-2 transition-colors duration-200 ease-in-out md:w-40"
                     >
                       {copied ? "Copied!" : "Copy Embed Code"}
                     </button>
@@ -573,7 +574,7 @@ export default function ToursPage() {
                     </label>
                     <input
                       placeholder="Enter step title"
-                      className="rounded bg-bg-color p-2 text-gray-800"
+                      className="bg-bg-color rounded p-2 text-gray-800"
                       value={newSteps[tour.id]?.title || ""}
                       onChange={(e) =>
                         handleStepInputChange(tour.id, "title", e.target.value)
@@ -588,7 +589,7 @@ export default function ToursPage() {
                     </label>
                     <input
                       placeholder="Enter step content"
-                      className="rounded bg-bg-color p-2 text-gray-800"
+                      className="bg-bg-color rounded p-2 text-gray-800"
                       value={newSteps[tour.id]?.content || ""}
                       onChange={(e) =>
                         handleStepInputChange(
@@ -614,3 +615,5 @@ export default function ToursPage() {
     </div>
   );
 }
+
+export default withAuth(ToursPage);

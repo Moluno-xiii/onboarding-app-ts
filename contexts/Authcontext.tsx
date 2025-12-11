@@ -1,7 +1,7 @@
 "use client";
 
+import supabase from "@/app/utils/supabase/supabase";
 import { emailRegex } from "@/constants";
-import { supabase } from "@/utils/supabaseClient";
 import { User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import {
