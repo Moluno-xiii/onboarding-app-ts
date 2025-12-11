@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/utils/supabaseClient";
 import { Plus, Edit2, Trash2 } from "lucide-react";
 import { User } from "@supabase/supabase-js";
+import withAuth from "@/utils/withAuth";
 
 interface TourStep {
   id: string;
@@ -40,7 +41,7 @@ interface SupabaseTourRow {
   steps?: SupabaseStepRow[];
 }
 
-export default function ToursPage() {
+function ToursPage() {
   const [tours, setTours] = useState<Tour[]>([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
@@ -573,3 +574,5 @@ export default function ToursPage() {
     </div>
   );
 }
+
+export default withAuth(ToursPage);

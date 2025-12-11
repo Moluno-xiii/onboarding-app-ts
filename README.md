@@ -1,10 +1,9 @@
-Please this link works for dashboard...for some reasons it doesn't work on the link submitted......https://onboarding-app-beige.vercel.app/dashboard
 ## FE and FEATURES
-* Jutin dikonu --External Pages 
-* Stephanie -- External Pages 
-* Abdul.tsx(not a mentor) --- Embeddable Element
-* Hillary_Elo -- Dashboard
 
+- Jutin dikonu --External Pages
+- Stephanie -- External Pages
+- Abdul.tsx(not a mentor) --- Embeddable Element
+- Hillary_Elo -- Dashboard
 
 # 🎯 Onboarding Tour Widget
 
@@ -16,24 +15,24 @@ This widget helps you guide new users through your interface with a clean, step-
 
 ## 🚀 What You Can Do With It
 
-* Highlight features for new users
-* Guide users step-by-step through important actions
-* Explain UI sections or workflows
-* Improve onboarding and user understanding
-* Track engagement and completion rates
+- Highlight features for new users
+- Guide users step-by-step through important actions
+- Explain UI sections or workflows
+- Improve onboarding and user understanding
+- Track engagement and completion rates
 
 ---
 
 ## ✨ Features
 
-* **5+ customizable steps**
-* **Next / Back** navigation
-* **Skip tour** option
-* **Progress indicator**
-* **Resume where user stopped**
-* Smooth animations
-* Works on any modern website
-* Small bundle size & fast loading
+- **5+ customizable steps**
+- **Next / Back** navigation
+- **Skip tour** option
+- **Progress indicator**
+- **Resume where user stopped**
+- Smooth animations
+- Works on any modern website
+- Small bundle size & fast loading
 
 ---
 
@@ -51,17 +50,8 @@ That’s it — the tour loads automatically.
 
 The widget tracks:
 
-* Step started
-* Step completed
-* Tour skipped
-* Tour finished
-* Where user dropped off
-
-
-
-
-
-
-
-
-
+- Step started
+- Step completed
+- Tour skipped
+- Tour finished
+- Where user dropped off
