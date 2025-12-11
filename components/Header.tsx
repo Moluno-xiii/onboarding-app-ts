@@ -52,11 +52,12 @@ export const Header: React.FC = () => {
   return (
     <header
       ref={headerRef}
+      id="header"
       className="bg-background/80 sticky top-0 z-50 border-b border-gray-200 backdrop-blur-sm"
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2">
+          <Link id="logo" href="/" className="flex items-center gap-2">
             <MdOutlineHub className="text-yellow text-3xl" />
             <span className="font-macondo-swash text-lg font-bold tracking-[-0.015em] text-gray-900">
               Onboardify
@@ -78,7 +79,8 @@ export const Header: React.FC = () => {
 
           <Link
             href="/signup"
-            className="bg-yellow/80 hover:bg-light-black ml-3 inline-flex items-center rounded-full px-4 py-2 text-sm font-bold text-white transition-colors"
+            id="get-started"
+            className="bg-yellow/80 hover:bg-light-black ml-3 inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-white transition-colors"
           >
             Get Started
           </Link>
@@ -119,7 +121,7 @@ export const Header: React.FC = () => {
               <Link
                 href="/signup"
                 onClick={() => setOpen(false)}
-                className="bg-yellow/80 hover:bg-light-black mt-2 inline-flex w-full items-center justify-center rounded-full px-4 py-2 text-sm font-bold text-white transition-colors"
+                className="bg-yellow/80 hover:bg-light-black mt-2 inline-flex w-full items-center justify-center rounded-full px-4 py-2 text-sm font-medium text-white transition-colors"
               >
                 Get Started
               </Link>
