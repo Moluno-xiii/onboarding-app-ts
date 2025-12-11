@@ -330,8 +330,8 @@ function ToursPage() {
   };
 
   const handleDisable = () => {
-    steps.length < 5
-  }
+    steps.length < 5;
+  };
 
   useEffect(() => {
     console.log("Fetched tours:", tours);
@@ -459,18 +459,16 @@ function ToursPage() {
                       <Trash2 className="h-4 w-4" />
                     </button>
                     {/* Copy Embed Code Button */}
-                     <button
-    onClick={() => {
-      const embedCode = `<script data-id="${tour.id}" src="https://tours-embed-widget-vite.vercel.app/main.iife.js"></script>`;
-      navigator.clipboard.writeText(embedCode);
-      alert("Embed code copied to clipboard!");
-    }}
-    className="rounded-lg border border-white/10 bg-purple-600/20 p-2"
-  >
-    Copy Embed Code
-  </button>
-)}
-   
+                    <button
+                      onClick={() => {
+                        const embedCode = `<script data-id="${tour.id}" src="https://tours-embed-widget-vite.vercel.app/main.iife.js"></script>`;
+                        navigator.clipboard.writeText(embedCode);
+                        alert("Embed code copied to clipboard!");
+                      }}
+                      className="rounded-lg border border-white/10 bg-purple-600/20 p-2"
+                    >
+                      Copy Embed Code
+                    </button>
                   </div>
                 </div>
               )}
