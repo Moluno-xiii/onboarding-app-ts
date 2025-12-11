@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import ContactSection from "@/components/ContactSection";
 
 const cardClass =
-  "bg-background flex flex-1 flex-col gap-3 rounded-xl border border-gray-200 p-4";
+  "bg-background flex flex-1 flex-col gap-3 rounded-xl border border-gray-400 p-4";
 
 const AboutPage: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const AboutPage: React.FC = () => {
 
       <main className="mx-auto w-full flex-1 px-6 py-6">
         {/* Title & subtitle */}
-        <h1 className="mb-2 text-3xl leading-tight font-tay-bea text-gray-900">
+        <h1 className="font-tay-bea mb-2 text-3xl leading-tight text-gray-900">
           Effortless Onboarding for Your Users
         </h1>
         <p className="mb-6 text-base text-gray-700">
@@ -28,7 +28,7 @@ const AboutPage: React.FC = () => {
           <div className={cardClass}>
             <MdOutlineWidgets className="text-purple text-3xl" />
             <div className="flex flex-col gap-1">
-              <h2 className="text-base font-tay-bea text-gray-900">What We Do</h2>
+              <h2 className="font-tay-bea text-lg text-gray-900">What We Do</h2>
               <p className="text-sm text-gray-600">
                 We provide an embeddable tool for creating intuitive user tours
                 and guides.
@@ -39,7 +39,9 @@ const AboutPage: React.FC = () => {
           <div className={cardClass}>
             <MdOutlineEmojiObjects className="text-purple text-3xl" />
             <div className="flex flex-col gap-1">
-              <h2 className="text-base font-tay-bea text-gray-900">Our Mission</h2>
+              <h2 className="font-tay-bea text-lg text-gray-900">
+                Our Mission
+              </h2>
               <p className="text-sm text-gray-600">
                 To empower developers to create exceptional user experiences.
               </p>
@@ -48,8 +50,10 @@ const AboutPage: React.FC = () => {
         </div>
 
         {/* Key benefits */}
-        <section className="bg-background mb-6 rounded-xl border border-gray-200 p-5">
-          <h3 className="mb-4 text-xl font-tay-bea text-gray-900">Key Benefits</h3>
+        <section className="bg-background mb-6 items-center justify-center rounded-xl border border-gray-400 p-5 md:flex md:flex-col">
+          <h3 className="font-tay-bea mb-4 text-xl text-gray-900">
+            Key Benefits
+          </h3>
 
           <ul className="space-y-3">
             {benefits.map((benefit, idx) => {
@@ -65,8 +69,28 @@ const AboutPage: React.FC = () => {
             })}
           </ul>
         </section>
-
         
+
+        <section className="mb-6">
+          <h3 className="mb-4 text-xl font-tay-bea">What customers say</h3>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className={cardClass}>
+              <p className="text-base text-gray-700">
+                “We shipped onboarding in one week — activation rose 25%.”
+              </p>
+              <p className="mt-2 text-sm text-gray-500">
+                — Product Manager, Acme Corp
+              </p>
+            </div>
+
+            <div className={cardClass}>
+              <p className="text-base">“Super simple to embed and customize.”</p>
+              <picture className="mt-2 text-sm text-gray-500">
+                — CTO, BrightApp
+              </picture>
+            </div>
+          </div>
+        </section>
       </main>
 
       <ContactSection />

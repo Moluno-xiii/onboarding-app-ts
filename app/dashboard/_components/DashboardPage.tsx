@@ -5,6 +5,8 @@ import { supabase } from "@/utils/supabaseClient";
 import { Plus, Edit2, Trash2 } from "lucide-react";
 import { User } from "@supabase/supabase-js";
 import withAuth from "@/utils/withAuth";
+import { BiEditAlt } from "react-icons/bi";
+import { steps } from "@/data";
 
 interface TourStep {
   id: string;
@@ -326,6 +328,10 @@ function ToursPage() {
       alert("Failed to delete step");
     }
   };
+
+  const handleDisable = () => {
+    steps.length < 5
+  }
 
   useEffect(() => {
     console.log("Fetched tours:", tours);

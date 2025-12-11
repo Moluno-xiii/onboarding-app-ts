@@ -107,11 +107,11 @@ const InstallGuide: React.FC = () => {
           onCopy={() => safeCopy(initCode, setCopied2)}
         />
 
-        <div className="bg-primary/10 mt-6 flex items-start gap-4 rounded-xl p-4">
-          <MdInfo className="text-purple mt-1 text-xl" />
-          <p className="text-purple/90 text-sm leading-relaxed">
-            <strong className="text-purple font-semibold">Important:</strong>{" "}
-            Replace <code>YOUR_API_KEY</code> with your actual credentials.
+        <div className="bg-red/10 mt-6 flex items-center gap-4 rounded-xl p-4">
+          <MdInfo className="text-red text-xl" />
+          <p className="text-red/90 text-sm leading-relaxed">
+            <strong className="text-red font-semibold">Important:</strong>{" "}
+            Replace <code>YOUR_DATA_ID</code> with your actual credentials.
           </p>
         </div>
 
@@ -124,7 +124,7 @@ const InstallGuide: React.FC = () => {
 
         <Link
           href="/"
-          className="bg-yellow mb-10 shadow-primary/30 hover:bg-light-black flex w-full items-center justify-center gap-2 rounded-xl py-4 text-base font-tay-bea text-white shadow-lg transition-transform active:scale-95"
+          className="bg-yellow mb-10 shadow-primary/30 hover:bg-light-black flex w-full items-center justify-center gap-2 rounded-xl py-4 text-base font-tay-bea text-white shadow-lg transition-all active:scale-95 duration-200 ease-in-out"
         >
           <MdPlayCircle className="text-xl" />
           View a Live Demo

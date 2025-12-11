@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="w-full py-10 z-12">
+    <div className="z-12 w-full py-10">
       {/* Hero */}
       <section className="mb-10 min-h-100 items-center justify-center gap-6 rounded-xl lg:py-6">
         <div className="justify-center sm:flex sm:flex-row">
@@ -34,24 +34,25 @@ export default function Hero() {
                 unoptimized
                 className="rotate-180 self-start sm:hidden lg:bottom-3 lg:-left-28"
               />
-              <span className="font-tay-bea"> Effortlessly</span>
+              <span id="hero-text" className="font-tay-bea">
+                {" "}
+                Effortlessly
+              </span>
             </div>
 
             <div className="max-sm:hidden max-sm:items-center max-sm:justify-center max-sm:text-center sm:order-3">
-              <h2 className="max-w-md text-base leading-normal font-semibold max-sm:mx-auto max-sm:text-center">
+              <h2
+                id="guide"
+                className="max-w-md text-base leading-normal font-semibold max-sm:mx-auto max-sm:text-center"
+              >
                 Guide your users with interactive tours and tooltips, embedded
                 in minutes.
               </h2>
-              <div className="flex flex-wrap gap-2 py-4 max-sm:justify-center">
+              <div className="flex w-full flex-wrap gap-2 py-4 max-sm:justify-center">
                 <Link
-                  href="/"
-                  className="bg-yellow/80 hover:bg-light-black z-10 flex h-10 max-w-120 min-w-38 items-center justify-center rounded-full px-8 text-sm font-bold text-white transition-colors @[30rem]:h-12 @[30rem]:px-5 @[30rem]:text-base"
-                >
-                  <span className="truncate">Try Demo</span>
-                </Link>
-                <Link
+                  id="docs"
                   href="/docs"
-                  className="border-light-brown z-10 flex h-10 max-w-120 min-w-38 items-center justify-center rounded-full border px-8 text-sm font-bold transition-colors hover:bg-gray-100 @[30rem]:h-12 @[30rem]:px-5 @[30rem]:text-base"
+                  className="border-light-brown bg-yellow hover:bg-light-black z-10 flex h-10 max-w-120 min-w-38 items-center justify-center rounded-full border px-8 py-4 text-lg font-bold text-white transition-colors hover:text-white md:py-6 @[30rem]:h-12 @[30rem]:px-5 @[30rem]:text-base"
                 >
                   <span className="truncate">Docs</span>
                 </Link>
@@ -70,22 +71,17 @@ export default function Hero() {
           />
         </div>
 
-        <div className="items-center justify-center  text-center sm:order-3 sm:hidden lg:-ml-10">
+        <div className="items-center justify-center text-center sm:order-3 sm:hidden lg:-ml-10">
           <h1 className="text-4xl leading-tight font-black tracking-[-0.033em] @[30rem]:text-5xl"></h1>
-          <h2 className="mx-auto px-3 max-w-md text-center text-base leading-normal font-semibold">
+          <h2 className="mx-auto max-w-md px-3 text-center text-base leading-normal font-semibold">
             Guide your users with interactive tours and tooltips, embedded in
             minutes.
           </h2>
           <div className="flex flex-wrap justify-center gap-2 py-4">
             <Link
-              href="/"
-              className="bg-yellow/80 flex h-10 max-w-120 min-w-38 items-center justify-center rounded-full px-8 text-sm font-bold text-white transition-colors hover:bg-gray-100"
-            >
-              <span className="truncate">Learn more</span>
-            </Link>
-            <Link
-              href="/"
-              className="border-light-brown z-10 flex h-10 max-w-120 min-w-38 items-center justify-center rounded-full border px-8 text-sm font-bold transition-colors hover:bg-gray-100 @[30rem]:h-12 @[30rem]:px-5 @[30rem]:text-base"
+              id="docs"
+              href="/docs"
+              className="border-light-brown bg-yellow hover:bg-light-black z-10 flex h-10 max-w-120 min-w-38 items-center justify-center rounded-full border px-8 py-4 text-sm font-bold transition-colors hover:text-white md:py-6 @[30rem]:h-12 @[30rem]:px-5 @[30rem]:text-base"
             >
               <span className="truncate">Docs</span>
             </Link>
