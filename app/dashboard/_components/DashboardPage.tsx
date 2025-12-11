@@ -67,6 +67,7 @@ function ToursPage() {
   const [addingStep, setAddingStep] = useState<{ [tourId: string]: boolean }>(
     {},
   );
+  const [copiedTourId, setCopiedTourId] = useState<string | null>(null);
 
   useEffect(() => {
     const init = async () => {
@@ -530,12 +531,21 @@ function ToursPage() {
                       onClick={() => {
                         const embedCode = `<script data-id="${tour.id}" src="https://tours-embed-widget-vite.vercel.app/main.iife.js"></script>`;
                         navigator.clipboard.writeText(embedCode);
-                        alert("Embed code copied to clipboard!");
+                        setCopiedTourId(tour.id);
+
+                        // Reset after 2 seconds
+                        setTimeout(() => setCopiedTourId(null), 2000);
                       }}
+                      disabled={tour.steps.length < 5}
                       aria-label="Copy embed code"
-                      className="flex h-8 items-center justify-center rounded-md border border-white/30 bg-black px-3 py-1 text-sm hover:bg-black/80"
+                      title={
+                        tour.steps.length < 5
+                          ? "Must have at least 5 steps"
+                          : "Copy embed code"
+                      }
+                      className="flex h-8 cursor-pointer items-center justify-center rounded-md border border-white/30 bg-black px-3 py-1 text-sm hover:bg-black/80 disabled:cursor-not-allowed disabled:opacity-30"
                     >
-                      <span className="truncate">Copy Embed Code</span>
+                      <span className="truncate transition-all duration-300 ease-in-out"> {copiedTourId === tour.id ? "Copied!" : "Copy Embed Code"}</span>
                     </button>
                   </div>
                 </div>
@@ -609,12 +619,12 @@ function ToursPage() {
                   </div>
                 ))}
                 {/* Add new step */}
-                <form className="mt-3 flex flex-col gap-2 md:flex-row md:items-center">
+                <form className="mt-8 flex flex-col gap-2 md:flex-row md:items-center">
                   {/* Step Title */}
                   <div className="flex flex-1 flex-col">
                     <label
                       htmlFor={`step-title-${tour.id}`}
-                      className="text-text mb-1 text-sm font-medium"
+                      className="text-text mb-1 text-lg font-medium"
                     >
                       Step Title
                     </label>
@@ -633,7 +643,7 @@ function ToursPage() {
                   <div className="flex flex-1 flex-col">
                     <label
                       htmlFor={`step-content-${tour.id}`}
-                      className="text-text mb-1 text-sm font-medium"
+                      className="text-text mb-1 text-lg font-medium"
                     >
                       Step Content
                     </label>
