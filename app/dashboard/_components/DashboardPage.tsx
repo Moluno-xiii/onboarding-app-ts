@@ -5,6 +5,8 @@ import { supabase } from "@/utils/supabaseClient";
 import { Plus, Edit2, Trash2 } from "lucide-react";
 import { User } from "@supabase/supabase-js";
 import withAuth from "@/utils/withAuth";
+import { BiEditAlt } from "react-icons/bi";
+import { steps } from "@/data";
 
 interface TourStep {
   id: string;
@@ -327,6 +329,10 @@ function ToursPage() {
     }
   };
 
+  const handleDisable = () => {
+    steps.length < 5
+  }
+
   useEffect(() => {
     console.log("Fetched tours:", tours);
   }, [tours]);
@@ -453,8 +459,7 @@ function ToursPage() {
                       <Trash2 className="h-4 w-4" />
                     </button>
                     {/* Copy Embed Code Button */}
-                    {tour.steps.length >= 5 && (
-  <button
+                     <button
     onClick={() => {
       const embedCode = `<script data-id="${tour.id}" src="https://tours-embed-widget-vite.vercel.app/main.iife.js"></script>`;
       navigator.clipboard.writeText(embedCode);
@@ -465,7 +470,7 @@ function ToursPage() {
     Copy Embed Code
   </button>
 )}
-                      
+   
                   </div>
                 </div>
               )}
