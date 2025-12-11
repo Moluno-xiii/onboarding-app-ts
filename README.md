@@ -2,7 +2,7 @@
 
 - Jutin dikonu --External Pages
 - Stephanie -- External Pages
-- Abdul.tsx(not a mentor) --- Embeddable Element
+- Abdul.tsx(not a mentor) --- Embeddable Element, Authentication, Fetch tour by id public API
 - Hillary_Elo -- Dashboard
 
 # 🎯 Onboarding Tour Widget
