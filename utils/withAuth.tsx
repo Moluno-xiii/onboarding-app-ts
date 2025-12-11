@@ -12,15 +12,16 @@ const withAuth = <P extends object>(WrappedComponent: ComponentType<P>) => {
     const router = useRouter();
 
     useEffect(() => {
-      if (user === undefined || isLoading) return;
-    }, [isLoading, user]);
+      if (!isLoading && user === null) {
+        toast.error("No session, login to access this page.");
+        router.push("/");
+      }
+    }, [isLoading, user, router]);
 
     if (isLoading) return <Loading />;
 
-    if (user === null) {
-      toast.error("No session, login to access this page.");
-      router.push("/");
-    }
+    if (user === null || user === undefined) return <Loading />;
+
     return <WrappedComponent {...props} />;
   };
 
