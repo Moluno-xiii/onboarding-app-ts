@@ -128,7 +128,7 @@ function ToursPage() {
     if (!user || !newTourTitle.trim()) return;
 
     try {
-      setAddingTour(true); // start loading
+      setAddingTour(true); 
 
       const { data: tour, error } = await supabase
         .from("tours")
@@ -151,7 +151,7 @@ function ToursPage() {
       console.error(err);
       alert("Failed to create tour");
     } finally {
-      setAddingTour(false); // stop loading
+      setAddingTour(false); 
     }
   };
 
@@ -221,7 +221,7 @@ function ToursPage() {
     if (!title?.trim()) return;
 
     try {
-      setAddingStep((prev) => ({ ...prev, [tourId]: true })); // start loading
+      setAddingStep((prev) => ({ ...prev, [tourId]: true })); 
 
       const parentTour = tours.find((t) => t.id === tourId);
 
@@ -261,7 +261,7 @@ function ToursPage() {
       console.error(err);
       alert("Failed to add step");
     } finally {
-      setAddingStep((prev) => ({ ...prev, [tourId]: false })); // stop loading
+      setAddingStep((prev) => ({ ...prev, [tourId]: false })); 
     }
   };
 
@@ -435,10 +435,16 @@ function ToursPage() {
                   <div>
                     <h3 className="text-2xl font-bold">{tour.title}</h3>
                     <p className="text-gray-300">{tour.description}</p>
-                    <p className="mt-1 text-sm text-gray-400">
+
+                    {/* UPDATED STEPS + BADGE */}
+                    <p className="mt-1 text-sm text-gray-400 flex items-center gap-2">
                       {tour.steps.length} Steps
+                      <span className="text-xs rounded-md bg-red-600/20 px-2 py-0.5 text-red-300 border border-red-600/30">
+                        5 steps minimum
+                      </span>
                     </p>
                   </div>
+
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleEditTour(tour)}
@@ -446,23 +452,27 @@ function ToursPage() {
                     >
                       <Edit2 className="h-4 w-4" />
                     </button>
+
                     <button
                       onClick={() => handleDeleteTour(tour.id)}
                       className="rounded-lg border border-white/10 bg-red-600/20 p-2"
                     >
                       <Trash2 className="h-4 w-4" />
                     </button>
-                    {/* Copy Embed Code Button */}
-                    <button
-                      onClick={() => {
-                        const embedCode = `<script data-id="${tour.id}" src="https://tours-embed-widget-vite.vercel.app/main.iife.js"></script>`;
-                        navigator.clipboard.writeText(embedCode);
-                        alert("Embed code copied to clipboard!");
-                      }}
-                      className="rounded-lg border border-white/10 bg-purple-600/20 p-2"
-                    >
-                      Copy Embed Code
-                    </button>
+
+                    {/* EMBED BUTTON (unchanged) */}
+                    {tour.steps.length >= 5 && (
+                      <button
+                        onClick={() => {
+                          const embedCode = `<script data-id="${tour.id}" src="https://tours-embed-widget-vite.vercel.app/main.iife.js"></script>`;
+                          navigator.clipboard.writeText(embedCode);
+                          alert("Embed code copied to clipboard!");
+                        }}
+                        className="rounded-lg border border-white/10 bg-purple-600/20 p-2"
+                      >
+                        Copy Embed Code
+                      </button>
+                    )}
                   </div>
                 </div>
               )}
@@ -534,6 +544,7 @@ function ToursPage() {
                     )}
                   </div>
                 ))}
+
                 {/* Add new step */}
                 <div className="mt-3 flex flex-col gap-2 md:flex-row">
                   <input
