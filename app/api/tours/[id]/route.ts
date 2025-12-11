@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import supabase from "@/app/utils/supabase/supabase";
 
-export async function GET(req: Request, context: { params: { id: string } }) {
+export async function GET(
+  req: Request,
+  context: { params: Promise<{ id: string }> },
+) {
   const { id } = await context.params;
   console.log("id,", id);
   const { data: tour, error: tourError } = await supabase
